@@ -1,0 +1,35 @@
+## Eclipse (we include .project etc as we will want these for installation of labs)
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+*.log
+local.properties
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+## IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
+out/
+target/
+
+# Folder config file
+Desktop.ini
+
+## Mac
+.DS_Store
+
+# Eclipse Project artifacts
+.classpath
+.settings
+.project

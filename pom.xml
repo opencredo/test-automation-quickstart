@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uk.co.opencredo.test.automation.quickstart</groupId>
+    <artifactId>test-automation-reactor</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>uk.co.opencredo.test.automation.quickstart:test-automation-reactor</name>
+    <description>Reactor project for the test automation quickstart</description>
+
+    <properties>
+        <junit.version>4.11</junit.version>
+        <cucumber.version>1.2.0</cucumber.version>
+        <selenium.version>2.43.0</selenium.version>
+        <spring.version>4.1.1.RELEASE</spring.version>
+        <joda.time.version>2.3</joda.time.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <id>default</id>
+            <modules>
+                <module>test-utils</module>
+                <module>ui-acceptance-tests</module>
+                <module>api-acceptance-tests</module>
+                <module>performance-tests</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>ui-acceptance-tests</id>
+            <modules>
+                <module>test-utils</module>
+                <module>ui-acceptance-tests</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>api-acceptance-tests</id>
+            <modules>
+                <module>test-utils</module>
+                <module>api-acceptance-tests</module>
+            </modules>
+        </profile>
+	<profile>
+	    <id>performance-tests</id>
+	    <modules>
+		    <module>performance-tests</module>
+	    </modules>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit-dep</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+</dependencies>
+</project>
