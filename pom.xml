@@ -16,6 +16,7 @@
         <selenium.version>2.43.0</selenium.version>
         <spring.version>4.1.1.RELEASE</spring.version>
         <joda.time.version>2.3</joda.time.version>
+        <acceptance.test.parallel.count>1</acceptance.test.parallel.count>
     </properties>
 
     <profiles>

@@ -15,9 +15,6 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration(classes= TestConfig.class)
 public class DemonstrationStepDefs {
     @Autowired
-    private SharedDriver driver;
-
-    @Autowired
     private World world;
 
     @Autowired
