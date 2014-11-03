@@ -10,7 +10,7 @@ public class TestProperties {
     @Autowired
     private Environment environment;
 
-    public String getApplicationBaseUri() {
+    public String getApplicationBaseUrl() {
         return environment.getProperty("ui.acceptance.test.application.base.url");
     }
 

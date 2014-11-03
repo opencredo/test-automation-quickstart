@@ -1,4 +1,6 @@
-package uk.co.opencredo.ui.acceptance.test.common;
+package uk.co.opencredo.api.acceptance.test.common;
+
+import java.util.List;
 
 /**
  * This class allows for sharing variables across multiple

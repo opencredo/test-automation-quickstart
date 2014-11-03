@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = { "@demo", "~@ignore" },
-        format = { "json:target/ParallelDemonstrationAT.json", "html:target/cucumber-report/ParallelDemonstrationAT" })
-public class ParallelDemonstrationAT
+        tags = { "@ui-demo", "~@ignore" },
+        format = { "json:target/UIDemonstrationAT.json", "html:target/cucumber-report/UIDemonstrationAT" })
+public class UIDemonstrationAT
 {
 }

@@ -32,7 +32,7 @@ public class TestConfig {
     @Bean
     public GoogleSearchPage googleSearchPage() {
         return new GoogleSearchPage(
-                properties().getApplicationBaseUri(),
+                properties().getApplicationBaseUrl(),
                 driver(),
                 properties().getSeleniumWaitTimeOutSeconds()
         );

@@ -7,6 +7,7 @@
     <artifactId>test-automation-reactor</artifactId>
     <packaging>pom</packaging>
     <version>0.1.0-SNAPSHOT</version>
+
     <name>uk.co.opencredo.test.automation.quickstart:test-automation-reactor</name>
     <description>Reactor project for the test automation quickstart</description>
 
@@ -30,7 +31,6 @@
             </activation>
             <id>default</id>
             <modules>
-                <module>test-utils</module>
                 <module>ui-acceptance-tests</module>
                 <module>api-acceptance-tests</module>
                 <module>performance-tests</module>
@@ -39,14 +39,12 @@
         <profile>
             <id>ui-acceptance-tests</id>
             <modules>
-                <module>test-utils</module>
                 <module>ui-acceptance-tests</module>
             </modules>
         </profile>
         <profile>
             <id>api-acceptance-tests</id>
             <modules>
-                <module>test-utils</module>
                 <module>api-acceptance-tests</module>
             </modules>
         </profile>
@@ -57,13 +55,4 @@
 	    </modules>
         </profile>
     </profiles>
-
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-</dependencies>
 </project>

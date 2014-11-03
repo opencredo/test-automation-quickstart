@@ -1,4 +1,4 @@
-@demo
+@ui-demo
 Feature: Demonstrate the UI test framework
 
   Scenario: Simple interaction with a web page
