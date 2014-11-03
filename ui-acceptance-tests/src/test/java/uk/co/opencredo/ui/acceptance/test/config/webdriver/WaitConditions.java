@@ -3,6 +3,9 @@ package uk.co.opencredo.ui.acceptance.test.config.webdriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
+/**
+ * Wait conditions for use with Selenium WebDriverWaits
+ */
 public class WaitConditions {
     public static ExpectedCondition<Boolean> urlContains(final String text) {
         return new ExpectedCondition<Boolean>() {
