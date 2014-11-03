@@ -1,15 +1,14 @@
-package uk.co.opencredo.ui.acceptance.test.utils;
+package uk.co.opencredo.ui.acceptance.test.config.webdriver;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import uk.co.opencredo.ui.acceptance.test.common.SharedDriver;
-import uk.co.opencredo.ui.acceptance.test.spring.config.TestConfig;
+import uk.co.opencredo.ui.acceptance.test.config.spring.TestConfig;
 
 /**
- * Perform actions before and after execution of each test
+ * Perform actions before and after execution of each test with cucumber hooks
  */
 @ContextConfiguration(classes = TestConfig.class)
 public class WebDriverHooks {

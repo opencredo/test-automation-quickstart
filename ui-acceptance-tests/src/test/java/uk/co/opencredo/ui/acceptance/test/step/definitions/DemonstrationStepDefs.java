@@ -5,10 +5,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import uk.co.opencredo.ui.acceptance.test.common.SharedDriver;
 import uk.co.opencredo.ui.acceptance.test.common.World;
-import uk.co.opencredo.ui.acceptance.test.interaction.library.GoogleSearchPage;
-import uk.co.opencredo.ui.acceptance.test.spring.config.TestConfig;
+import uk.co.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPage;
+import uk.co.opencredo.ui.acceptance.test.config.spring.TestConfig;
 
 import static org.junit.Assert.assertTrue;
 

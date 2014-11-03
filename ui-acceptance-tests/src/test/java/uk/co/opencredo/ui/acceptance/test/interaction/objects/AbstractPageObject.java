@@ -1,10 +1,8 @@
-package uk.co.opencredo.ui.acceptance.test.interaction.library;
+package uk.co.opencredo.ui.acceptance.test.interaction.objects;
 
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
-import uk.co.opencredo.ui.acceptance.test.utils.WebPageUtils;
+import uk.co.opencredo.ui.acceptance.test.config.webdriver.WaitConditions;
 
 /**
  * Common page methods
@@ -42,11 +40,11 @@ public abstract class AbstractPageObject {
     }
 
     public void ensure_is_current() {
-        wait_until_true_or_timeout(WebPageUtils.urlContains(path));
+        wait_until_true_or_timeout(WaitConditions.urlContains(path));
     }
 
     public boolean is_text_present(String text) {
-        wait_until_true_or_timeout(WebPageUtils.pageContainsText(text));
+        wait_until_true_or_timeout(WaitConditions.pageContainsText(text));
         return true;
     }
 

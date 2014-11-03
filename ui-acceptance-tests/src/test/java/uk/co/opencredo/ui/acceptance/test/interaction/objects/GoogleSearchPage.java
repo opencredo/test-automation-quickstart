@@ -1,4 +1,4 @@
-package uk.co.opencredo.ui.acceptance.test.interaction.library;
+package uk.co.opencredo.ui.acceptance.test.interaction.objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

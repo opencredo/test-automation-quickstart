@@ -1,9 +1,7 @@
-package uk.co.opencredo.ui.acceptance.test.common;
+package uk.co.opencredo.ui.acceptance.test.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.test.context.ContextConfiguration;
-import uk.co.opencredo.ui.acceptance.test.spring.config.TestConfig;
 
 /**
  * Used to retrieve properties and make them available to tests

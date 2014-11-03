@@ -1,12 +1,12 @@
-package uk.co.opencredo.ui.acceptance.test.spring.config;
+package uk.co.opencredo.ui.acceptance.test.config.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import uk.co.opencredo.ui.acceptance.test.common.SharedDriver;
-import uk.co.opencredo.ui.acceptance.test.common.TestProperties;
+import uk.co.opencredo.ui.acceptance.test.config.webdriver.SharedDriver;
+import uk.co.opencredo.ui.acceptance.test.config.TestProperties;
 import uk.co.opencredo.ui.acceptance.test.common.World;
-import uk.co.opencredo.ui.acceptance.test.interaction.library.GoogleSearchPage;
+import uk.co.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPage;
 
 /**
  * Spring configuration for autowired objects

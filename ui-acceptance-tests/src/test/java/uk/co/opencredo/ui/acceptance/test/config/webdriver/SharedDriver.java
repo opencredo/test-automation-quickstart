@@ -1,4 +1,4 @@
-package uk.co.opencredo.ui.acceptance.test.common;
+package uk.co.opencredo.ui.acceptance.test.config.webdriver;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

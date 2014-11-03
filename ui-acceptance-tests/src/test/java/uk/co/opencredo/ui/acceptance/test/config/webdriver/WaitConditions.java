@@ -1,9 +1,9 @@
-package uk.co.opencredo.ui.acceptance.test.utils;
+package uk.co.opencredo.ui.acceptance.test.config.webdriver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 
-public class WebPageUtils {
+public class WaitConditions {
     public static ExpectedCondition<Boolean> urlContains(final String text) {
         return new ExpectedCondition<Boolean>() {
             private String currentUrl = "";
