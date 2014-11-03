@@ -1,5 +1,7 @@
 package uk.co.opencredo.ui.acceptance.test.interaction.library;
 
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 import uk.co.opencredo.ui.acceptance.test.utils.WebPageUtils;

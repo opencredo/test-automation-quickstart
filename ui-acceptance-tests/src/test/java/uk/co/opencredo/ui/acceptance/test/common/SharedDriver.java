@@ -3,11 +3,14 @@ package uk.co.opencredo.ui.acceptance.test.common;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.HttpCommandExecutor;
+import org.openqa.selenium.remote.internal.HttpClientFactory;
+import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,22 +19,58 @@ import java.util.concurrent.TimeUnit;
  * test cases for increased speed.
  */
 public class SharedDriver extends EventFiringWebDriver {
-    private static final WebDriver REAL_DRIVER;
+    private static WebDriver REAL_DRIVER;
     private static final Thread CLOSE_THREAD = new Thread() {
         @Override
         public void run() {
-            REAL_DRIVER.quit();
+            quitGlobalInstance();
         }
     };
 
+    private static void quitGlobalInstance() {
+        WebDriver driver = REAL_DRIVER;
+        REAL_DRIVER = null;
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
     static {
-        REAL_DRIVER = new FirefoxDriver();
-        REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        try {
+            Field field = HttpCommandExecutor.class.getDeclaredField("httpClientFactory");
+
+            HttpClientFactory factory = new HttpClientFactory() {
+
+            };
+            field.setAccessible(true);
+            field.set(HttpCommandExecutor.class, factory);
+
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 
+    private static WebDriver getRealDriver() {
+        if (REAL_DRIVER == null) {
+            REAL_DRIVER = new FirefoxDriver();
+        }
+        return REAL_DRIVER;
+    }
+
     public SharedDriver() {
-        super(REAL_DRIVER);
+        super(getRealDriver());
+        getWrappedDriver().manage().window().setSize(new Dimension(1024, 1280));
+        register(new AbstractWebDriverEventListener() {
+            @Override
+            public void afterNavigateTo(String url, WebDriver driver) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
     }
 
     @Override
@@ -39,30 +78,27 @@ public class SharedDriver extends EventFiringWebDriver {
         if (Thread.currentThread() != CLOSE_THREAD) {
             throw new UnsupportedOperationException("You shouldn't close this WebDriver. It's shared and will close when the JVM exits.");
         }
-        super.close();
-    }
-
-    @Before
-    /**
-     * Delete all cookies at the start of each scenario to avoid
-     * shared state between tests
-     */
-    public void deleteAllCookies() {
-        manage().deleteAllCookies();
-    }
-
-    @After
-    /**
-     * Embed a screenshot in test report if test is marked as failed
-     */
-    public void embedScreenshot(Scenario scenario) {
-        scenario.write("Current Page URL is " + getCurrentUrl());
         try {
-            byte[] screenshot = getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png");
-        } catch (WebDriverException somePlatformsDontSupportScreenshots) {
-            scenario.write(somePlatformsDontSupportScreenshots.getMessage());
+            super.close();
+        } catch (Throwable e) {
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Embed a screenshot in test report if test is marked as failed
+     */
+    public void embedScreenshotIfFailed(Scenario scenario) {
+        if (scenario.isFailed()) {
+            try {
+                scenario.write("Current Page URL is " + getCurrentUrl());
+                if (getWrappedDriver() instanceof TakesScreenshot) {
+                    byte[] screenshot = getScreenshotAs(OutputType.BYTES);
+                    scenario.embed(screenshot, "image/png");
+                }
+            } catch (Throwable somePlatformsDontSupportScreenshotsOrBrowserHasDied) {
+                somePlatformsDontSupportScreenshotsOrBrowserHasDied.printStackTrace(System.err);
+            }
+        }
+    }
 }

@@ -7,7 +7,7 @@ public class GoogleSearchPage extends AbstractPageObject {
     public static final String PATH = "/";
 
     //page elements
-    private final By searchTextbox = By.name("");
+    private final By searchTextbox = By.name("q");
 
     public GoogleSearchPage(String baseUrl, WebDriver driver, int waitTimeOutSeconds) {
         super(baseUrl + PATH, driver, waitTimeOutSeconds);
