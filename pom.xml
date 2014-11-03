@@ -16,7 +16,10 @@
         <selenium.version>2.43.0</selenium.version>
         <spring.version>4.1.1.RELEASE</spring.version>
         <joda.time.version>2.3</joda.time.version>
-        <surefire.plugin.version>2.17</surefire.plugin.version>
+        <surefire.maven.plugin.version>2.17</surefire.maven.plugin.version>
+        <jmeter.maven.plugin.version>1.10.0</jmeter.maven.plugin.version>
+        <jmeter.graph.maven.plugin.version>0.1.0</jmeter.graph.maven.plugin.version>
+        <jmeter.plugins.version>1.0.0</jmeter.plugins.version>
         <acceptance.test.parallel.count>1</acceptance.test.parallel.count>
     </properties>
 

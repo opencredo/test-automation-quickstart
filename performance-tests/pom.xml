@@ -15,8 +15,6 @@
         <perfTest.hostName>www.google.co.uk</perfTest.hostName>
         <perfTest.threadCount>1</perfTest.threadCount>
         <perfTest.durationSeconds>10</perfTest.durationSeconds>
-        <perfTest.connectionTimeoutMilliseconds>10000</perfTest.connectionTimeoutMilliseconds>
-        <perfTest.responseTimeoutMilliseconds>10000</perfTest.responseTimeoutMilliseconds>
     </properties>
 
     <build>
@@ -24,6 +22,7 @@
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
+                <version>${jmeter.maven.plugin.version}</version>
                 <configuration>
                     <testResultsTimestamp>false</testResultsTimestamp>
                     <overrideRootLogLevel>DEBUG</overrideRootLogLevel>
@@ -33,8 +32,6 @@
                         <hostName>${perfTest.hostName}</hostName>
                         <threadCount>${perfTest.threadCount}</threadCount>
                         <durationSeconds>${perfTest.durationSeconds}</durationSeconds>
-                        <connectTimeout>${perfTest.connectionTimeoutMilliseconds}</connectTimeout>
-                        <responseTimeout>${perfTest.responseTimeoutMilliseconds}</responseTimeout>
                     </propertiesUser>
                     <propertiesJMeter>
                         <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
@@ -55,11 +52,66 @@
                         <phase>integration-test</phase>
                     </execution>
                 </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>kg.apc</groupId>
+                        <artifactId>jmeter-plugins</artifactId>
+                        <version>${jmeter.plugins.version}</version>
+                        <exclusions>
+                            <!--
+                                Unfortunately some transitive dependencies cannot be found on mvncentral
+                                and we have to explicitly exclude them.
+                                For a complete list, see https://github.com/mlex/jmeter-maven-example/
+                            -->
+                            <exclusion>
+                                <groupId>kg.apc</groupId>
+                                <artifactId>perfmon</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.hadoop</groupId>
+                                <artifactId>hadoop-core</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.hbase</groupId>
+                                <artifactId>hbase</artifactId>
+                            </exclusion>
+
+                            <!--
+                                These dependencies would override direct JMeter dependencies,
+                                which results in version conflicts (e.g. NoSuchMethodError on jmeter startup
+                            -->
+                            <exclusion>
+                                <groupId>org.apache.jmeter</groupId>
+                                <artifactId>jorphan</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.apache.bsf</groupId>
+                                <artifactId>bsf-api</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bouncycastle</groupId>
+                                <artifactId>bcmail-jdk15</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>org.bouncycastle</groupId>
+                                <artifactId>bcprov-jdk15</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>javax.activation</groupId>
+                                <artifactId>activation</artifactId>
+                            </exclusion>
+                            <exclusion>
+                                <groupId>commons-logging</groupId>
+                                <artifactId>commons-logging</artifactId>
+                            </exclusion>
+                        </exclusions>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>de.codecentric</groupId>
                 <artifactId>jmeter-graph-maven-plugin</artifactId>
-                <version>0.1.0</version>
+                <version>${jmeter.graph.maven.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>create-graph-threads</id>
@@ -93,5 +145,7 @@
             </plugin>
         </plugins>
     </build>
+
+
 
 </project>
