@@ -34,8 +34,7 @@
                         </goals>
                         <configuration>
                             <forkCount>${acceptance.test.parallel.count}</forkCount>
-                            <reuseForks>false</reuseForks>
-                            <useFile>false</useFile>
+                            <reuseForks>true</reuseForks>
                             <includes>
                                 <include>**/*AT.class</include>
                             </includes>
