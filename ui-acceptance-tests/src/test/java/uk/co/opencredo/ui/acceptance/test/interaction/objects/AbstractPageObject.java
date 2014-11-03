@@ -30,6 +30,10 @@ public abstract class AbstractPageObject {
         getDriver().navigate().to(path);
     }
 
+    public String getPath() {
+        return path;
+    }
+
     /**
      * Go to page and wait until url reflects
      * expected page (or timeout reached)
