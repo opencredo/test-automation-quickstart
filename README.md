@@ -1,13 +1,11 @@
 
- test-automation-quickstart
- ===========================
+#test-automation-quickstart
 
  Java quickstart project for test automation, covering performance, ui acceptance and api acceptance testing.
  Created with lessons learned from a large number of development projects to provide all commonly
  required components and concepts.
 
- Concepts Included
- ==================
+##Concepts Included
 
  * Parallel test runs
  * Shared state across cucumber step definitions
@@ -19,8 +17,7 @@
  * Externalised test configuration
  * Commonly used test utility classes
 
- Tools
- ======
+##Tools
 
  * Maven
  * Cucumber-JVM
@@ -31,8 +28,7 @@
  * Jackson
  * JMeter
 
- Requirements
- =============
+##Requirements
 
  In order to utilise this project you need to have the following installed locally:
 
@@ -40,8 +36,7 @@
  * Firefox (used by default for UI tests, this can be changed in the code)
  * Java 1.7
 
- Usage
- ======
+##Usage
 
  The project is broken into separate modules for API, UI and Performance testing. Each of these modules can be utilised
  independently of the others using maven profiles.
@@ -58,8 +53,7 @@
  To run performance tests only, navigate to test-automation-quickstart directory and run:
  mvn clean install -Pperformance-tests
 
- Reporting
- ==========
+##Reporting
 
  Reports for each module are written into their respective /target directories after a successful run.
 
