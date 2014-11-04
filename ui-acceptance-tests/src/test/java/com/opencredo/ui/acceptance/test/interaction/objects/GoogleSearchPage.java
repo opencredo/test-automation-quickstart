@@ -3,6 +3,9 @@ package com.opencredo.ui.acceptance.test.interaction.objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+/**
+ * Provides methods for interacting with the Google search page
+ */
 public class GoogleSearchPage extends AbstractPageObject {
     public static final String PATH = "/";
 

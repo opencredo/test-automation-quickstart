@@ -44,7 +44,7 @@ public class DemonstrationStepDefs extends AbstractStepDefinition {
         googleSearchPage.search(searchText);
     }
 
-    @Then("^there the site \"(.+)\" should be present in the results$")
+    @Then("^the site \"(.+)\" should be present in the results$")
     public void the_result_should_contain_url(String resultUrl) throws Throwable {
         //utilise a method on the page object to perform an assertion
         assertTrue(googleSearchPage.isSearchResultPresent(resultUrl));

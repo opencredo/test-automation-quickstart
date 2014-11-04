@@ -10,5 +10,4 @@ import java.util.HashMap;
  */
 public class World {
     public HashMap<String, String> sharedState = new HashMap<>();
-
 }
