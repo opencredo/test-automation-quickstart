@@ -31,7 +31,7 @@ Created with lessons learned from a large number of development projects to prov
 
 In order to utilise this project you need to have the following installed locally:
 
-* Maven 33
+* Maven 3
 * Firefox (used by default for UI tests, this can be changed in the code)
 * Java 1.7
 
