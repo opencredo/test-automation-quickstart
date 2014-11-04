@@ -48,12 +48,6 @@
     <dependencies>
         <dependency>
             <groupId>info.cukes</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <scope>test</scope>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
             <scope>test</scope>
             <version>${cucumber.version}</version>

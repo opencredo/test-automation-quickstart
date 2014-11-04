@@ -17,6 +17,8 @@
         <selenium.version>2.43.0</selenium.version>
         <spring.version>4.1.1.RELEASE</spring.version>
         <joda.time.version>2.3</joda.time.version>
+        <jackson.version>1.9.13</jackson.version>
+        <apache.httpclient.version>4.3.5</apache.httpclient.version>
         <surefire.maven.plugin.version>2.17</surefire.maven.plugin.version>
         <jmeter.maven.plugin.version>1.10.0</jmeter.maven.plugin.version>
         <jmeter.graph.maven.plugin.version>0.1.0</jmeter.graph.maven.plugin.version>
