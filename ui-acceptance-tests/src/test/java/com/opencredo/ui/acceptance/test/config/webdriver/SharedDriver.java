@@ -18,8 +18,9 @@ import java.lang.reflect.Field;
 public class SharedDriver extends EventFiringWebDriver {
     private static WebDriver REAL_DRIVER;
     private static final Thread CLOSE_THREAD = new Thread() {
-        @Override
-        public void run() {
+
+    @Override
+    public void run() {
             quitGlobalInstance();
         }
     };
@@ -32,22 +33,6 @@ public class SharedDriver extends EventFiringWebDriver {
         }
     }
 
-    static {
-        try {
-            Field field = HttpCommandExecutor.class.getDeclaredField("httpClientFactory");
-
-            HttpClientFactory factory = new HttpClientFactory() {
-
-            };
-            field.setAccessible(true);
-            field.set(HttpCommandExecutor.class, factory);
-
-        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
-    }
-
     private static WebDriver getRealDriver() {
         if (REAL_DRIVER == null) {
             REAL_DRIVER = new FirefoxDriver();
@@ -57,17 +42,7 @@ public class SharedDriver extends EventFiringWebDriver {
 
     public SharedDriver() {
         super(getRealDriver());
-        getWrappedDriver().manage().window().setSize(new Dimension(1024, 1280));
-        register(new AbstractWebDriverEventListener() {
-            @Override
-            public void afterNavigateTo(String url, WebDriver driver) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+        Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 
     @Override
@@ -82,3 +57,5 @@ public class SharedDriver extends EventFiringWebDriver {
         }
     }
 }
+
+
