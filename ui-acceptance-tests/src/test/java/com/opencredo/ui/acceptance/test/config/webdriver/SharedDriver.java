@@ -81,21 +81,4 @@ public class SharedDriver extends EventFiringWebDriver {
             e.printStackTrace();
         }
     }
-
-    /**
-     * Embed a screenshot in test report if test is marked as failed
-     */
-    public void embedScreenshotIfFailed(Scenario scenario) {
-        if (scenario.isFailed()) {
-            try {
-                scenario.write("Current Page URL is " + getCurrentUrl());
-                if (getWrappedDriver() instanceof TakesScreenshot) {
-                    byte[] screenshot = getScreenshotAs(OutputType.BYTES);
-                    scenario.embed(screenshot, "image/png");
-                }
-            } catch (Throwable somePlatformsDontSupportScreenshotsOrBrowserHasDied) {
-                somePlatformsDontSupportScreenshotsOrBrowserHasDied.printStackTrace(System.err);
-            }
-        }
-    }
 }

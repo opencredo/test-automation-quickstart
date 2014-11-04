@@ -22,7 +22,8 @@ public class DemonstrationStepDefs extends AbstractStepDefinition {
 
     /**
      * pass the current cucumber scenario to abstract class to
-     * support writing to cucumber test report
+     * support writing to cucumber test report due to cucumber
+     * limitations
      */
     @Before
     public void before(Scenario scenario) {
