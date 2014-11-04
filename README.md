@@ -69,4 +69,4 @@ Performance tests result in a .jtl results file and .png graphs showing response
 *NOTE*:
 As mentioned, cucumber reports are written to a separate file for each test class (*AT.class). This approach supports running tests in parallel.
 If using CI, these individual reports can be joined using plugins such as the Jenkins Cucumber-JVM-Reports plugin.
-For an alternative approach to combining the cucumber reports, see the [parallel testing blog post on OpenCredo.com]|(http://www.opencredo.com/2013/07/02/running-cucumber-jvm-tests-in-parallel)
+For an alternative approach to combining the cucumber reports, see the [parallel testing blog post on OpenCredo.com](http://www.opencredo.com/2013/07/02/running-cucumber-jvm-tests-in-parallel)
