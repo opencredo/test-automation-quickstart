@@ -5,7 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
 /**
- * Common page methods
+ * Reusable methods for all page objects
  */
 public abstract class AbstractPageObject {
     private String path;

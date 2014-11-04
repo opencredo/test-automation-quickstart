@@ -10,13 +10,16 @@ import org.springframework.http.ResponseEntity;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Provides methods for interacting with the GitHub API
+ */
 public class GithubApi extends AbstractApiObject {
     public GithubApi (String baseUrl) {
         super(baseUrl);
     }
 
     public List<RepositoryResponse> getRepositoryListForUser(String user) {
-        ResponseEntity<String> responseEntity = httpRequest(HttpMethod.GET, path + "/users/" + user + "/repos");
+        ResponseEntity<String> responseEntity = httpRequest(HttpMethod.GET, baseUrl + "/users/" + user + "/repos");
 
         ObjectMapper mapper = new ObjectMapper();
 

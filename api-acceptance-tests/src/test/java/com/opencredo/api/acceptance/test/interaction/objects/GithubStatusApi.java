@@ -7,13 +7,16 @@ import org.springframework.http.*;
 
 import java.io.IOException;
 
+/**
+ * Provides methods for interacting with the GitHub Service Status API
+ */
 public class GithubStatusApi extends AbstractApiObject {
     public GithubStatusApi (String baseUrl) {
         super(baseUrl);
     }
 
     public ServiceStatusResponse getServiceStatus() {
-        ResponseEntity<String> responseEntity = httpRequest(HttpMethod.GET, path + "/status.json");
+        ResponseEntity<String> responseEntity = httpRequest(HttpMethod.GET, baseUrl + "/status.json");
 
         ObjectMapper mapper = new ObjectMapper();
 

@@ -18,11 +18,12 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration(classes= TestConfig.class)
 public class DemonstrationStepDefs extends AbstractStepDefinition {
     @Autowired
-    private World world;
-
-    @Autowired
     private GoogleSearchPage googleSearchPage;
 
+    /**
+     * pass the current cucumber scenario to abstract class to
+     * support writing to cucumber test report
+     */
     @Before
     public void before(Scenario scenario) {
         super.before(scenario);
@@ -30,17 +31,22 @@ public class DemonstrationStepDefs extends AbstractStepDefinition {
 
     @Given("^I am on the Google search page")
     public void I_am_on_the_google_search_page() throws Throwable {
+        //demonstrates of writing to the cucumber test report
         embedTextInReport("Navigating to page " + googleSearchPage.getPath());
+
+        //navigate to the page and wait for load to complete
         googleSearchPage.goToAndWait();
     }
 
     @When("^I search for \"(.+)\"$")
     public void I_search_for(String searchText) throws Throwable {
+        //utilise a method on the page object to perform an interaction
         googleSearchPage.search(searchText);
     }
 
     @Then("^there the site \"(.+)\" should be present in the results$")
     public void the_result_should_contain_url(String resultUrl) throws Throwable {
+        //utilise a method on the page object to perform an assertion
         assertTrue(googleSearchPage.isSearchResultPresent(resultUrl));
     }
 }
