@@ -1,14 +1,14 @@
 package com.opencredo.api.acceptance.test.step.definitions;
 
 import com.opencredo.api.acceptance.test.common.RepositoryResponse;
+import com.opencredo.api.acceptance.test.config.spring.TestConfig;
+import com.opencredo.api.acceptance.test.interaction.objects.GithubApi;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import com.opencredo.api.acceptance.test.config.spring.TestConfig;
-import com.opencredo.api.acceptance.test.interaction.objects.GithubApi;
 
 import java.util.ArrayList;
 import java.util.List;

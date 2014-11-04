@@ -2,6 +2,8 @@ package com.opencredo.api.acceptance.test.config.spring;
 
 import com.opencredo.api.acceptance.test.common.World;
 import com.opencredo.api.acceptance.test.config.TestProperties;
+import com.opencredo.api.acceptance.test.interaction.objects.GithubApi;
+import com.opencredo.api.acceptance.test.interaction.objects.GithubStatusApi;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.context.annotation.Bean;
@@ -9,8 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
-import com.opencredo.api.acceptance.test.interaction.objects.GithubApi;
-import com.opencredo.api.acceptance.test.interaction.objects.GithubStatusApi;
 
 /**
  * Spring configuration for autowired objects

@@ -1,6 +1,5 @@
 package com.opencredo.api.acceptance.test.interaction.objects;
 
-import com.opencredo.api.acceptance.test.common.World;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
