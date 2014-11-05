@@ -3,6 +3,7 @@
 
 Java quickstart project for test automation, covering performance, ui acceptance and api acceptance testing.
 Created with lessons learned from a large number of development projects to provide all commonly required components and concepts.
+The framework was first introduced on the [OpenCredo.com Blog](http://www.opencredo.com/2014/11/04/test-automation-quickstart-framework/).
 
 ##Concepts Included
 
