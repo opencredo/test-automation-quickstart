@@ -14,7 +14,7 @@
     <properties>
         <junit.version>4.11</junit.version>
         <cucumber.version>1.2.0</cucumber.version>
-        <selenium.version>2.43.0</selenium.version>
+        <selenium.version>2.48.2</selenium.version>
         <spring.version>4.1.1.RELEASE</spring.version>
         <jackson.version>1.9.13</jackson.version>
         <apache.httpclient.version>4.3.5</apache.httpclient.version>
