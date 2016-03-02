@@ -1,6 +1,6 @@
 package com.opencredo.ui.acceptance.test.config.spring;
 
-import com.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPage;
+import com.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPageObject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -15,7 +15,7 @@ import com.opencredo.ui.acceptance.test.common.TestWorld;
 @PropertySource(value = { "classpath:/props-for-ui-tests.properties" })
 public class TestConfig {
     @Bean
-    public TestWorld world() {
+    public TestWorld testWorld() {
         return new TestWorld();
     }
 
@@ -30,8 +30,8 @@ public class TestConfig {
     }
 
     @Bean
-    public GoogleSearchPage googleSearchPage() {
-        return new GoogleSearchPage(
+    public GoogleSearchPageObject googleSearchPage() {
+        return new GoogleSearchPageObject(
                 properties().getApplicationBaseUrl(),
                 driver(),
                 properties().getSeleniumWaitTimeOutSeconds()

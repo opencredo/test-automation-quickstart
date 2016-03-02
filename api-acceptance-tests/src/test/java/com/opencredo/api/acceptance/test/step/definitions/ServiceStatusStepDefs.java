@@ -9,7 +9,7 @@ import cucumber.api.java.en.Given;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ContextConfiguration(classes= TestConfig.class)
 public class ServiceStatusStepDefs extends AbstractStepDefinition{
@@ -23,6 +23,6 @@ public class ServiceStatusStepDefs extends AbstractStepDefinition{
 
     @Given("^that Github is up and running with a \"([^\"]*)\" status$")
     public void that_Github_is_up_and_running_with_a_status(String expectedStatus) throws Throwable {
-        assertEquals(expectedStatus, githubStatus.getServiceStatus().status);
+        assertThat(expectedStatus).isEqualToIgnoringCase(githubStatus.getServiceStatus().status);
     }
 }

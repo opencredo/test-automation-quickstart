@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
  * Write HTML report out to UIDemonstrationAT folder
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(
+@CucumberOptions(features = "classpath:cucumber/",
         tags = { "@ui-demo", "~@ignore" },
         format = { "json:target/ParallelUIDemonstrationAT.json", "html:target/cucumber-report/ParallelUIDemonstrationAT" })
-public class ParallelUIDemonstrationAT
+public class ParallelUiDemonstrationAT
 {
 }

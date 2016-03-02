@@ -53,7 +53,7 @@ public abstract class AbstractPageObject {
     }
 
     /**
-     * wait until condition is true or timeout kicks in
+     * wait until condition is true or timeout is reached
      */
     protected <V> V wait_until_true_or_timeout(ExpectedCondition<V> isTrue) {
         Wait<WebDriver> wait = new WebDriverWait(this.driver, waitTimeOutSeconds)

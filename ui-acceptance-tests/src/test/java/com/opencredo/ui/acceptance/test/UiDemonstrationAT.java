@@ -9,9 +9,9 @@ import org.junit.runner.RunWith;
  * Write HTML report out to UIDemonstrationAT folder
  */
 @RunWith(Cucumber.class)
-@CucumberOptions(
+@CucumberOptions(features = "classpath:cucumber/",
         tags = { "@ui-demo", "~@ignore" },
         format = { "json:target/UIDemonstrationAT.json", "html:target/cucumber-report/UIDemonstrationAT" })
-public class UIDemonstrationAT
+public class UiDemonstrationAT
 {
 }
