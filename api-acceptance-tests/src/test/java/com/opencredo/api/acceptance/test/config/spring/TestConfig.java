@@ -1,6 +1,6 @@
 package com.opencredo.api.acceptance.test.config.spring;
 
-import com.opencredo.api.acceptance.test.common.World;
+import com.opencredo.api.acceptance.test.common.TestWorld;
 import com.opencredo.api.acceptance.test.config.TestProperties;
 import com.opencredo.api.acceptance.test.interaction.objects.GithubApi;
 import com.opencredo.api.acceptance.test.interaction.objects.GithubStatusApi;
@@ -12,15 +12,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Spring configuration for autowired objects
- */
 @Configuration
 @PropertySource(value = { "classpath:/props-for-api-tests.properties" })
 public class TestConfig {
     @Bean
-    public World world() {
-        return new World();
+    public TestWorld world() {
+        return new TestWorld();
     }
 
     @Bean

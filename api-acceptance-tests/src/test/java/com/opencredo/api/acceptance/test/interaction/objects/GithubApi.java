@@ -1,32 +1,16 @@
 package com.opencredo.api.acceptance.test.interaction.objects;
 
 
-import com.opencredo.api.acceptance.test.common.RepositoryResponse;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-
-import java.io.IOException;
+import com.opencredo.api.acceptance.test.common.Repository;
+import java.util.Arrays;
 import java.util.List;
 
-/**
- * Provides methods for interacting with the GitHub API
- */
 public class GithubApi extends AbstractApiObject {
-    public GithubApi (String baseUrl) {
+    public GithubApi(String baseUrl) {
         super(baseUrl);
     }
 
-    public List<RepositoryResponse> getRepositoryListForUser(String user) {
-        ResponseEntity<String> responseEntity = httpRequest(HttpMethod.GET, baseUrl + "/users/" + user + "/repos");
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-            return mapper.readValue(responseEntity.getBody(), new TypeReference<List<RepositoryResponse>>(){});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public List<Repository> getRepositoryListForUser(String user) {
+        return Arrays.asList(restTemplate.getForEntity(baseUrl + "/users/" + user + "/repos", Repository[].class).getBody());
     }
 }

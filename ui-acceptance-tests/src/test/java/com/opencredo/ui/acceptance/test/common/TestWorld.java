@@ -1,6 +1,4 @@
-package com.opencredo.api.acceptance.test.common;
-
-import java.util.HashMap;
+package com.opencredo.ui.acceptance.test.common;
 
 /**
  * This class allows for sharing variables across multiple
@@ -8,6 +6,6 @@ import java.util.HashMap;
  * The world should be included in each stepdef file using
  * dependency injection (spring)
  */
-public class World {
-    public HashMap<String, String> sharedState = new HashMap<>();
+public class TestWorld {
+
 }

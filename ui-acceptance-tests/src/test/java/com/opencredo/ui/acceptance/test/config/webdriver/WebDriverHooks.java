@@ -1,6 +1,6 @@
 package com.opencredo.ui.acceptance.test.config.webdriver;
 
-import com.opencredo.ui.acceptance.test.common.World;
+import com.opencredo.ui.acceptance.test.common.TestWorld;
 import com.opencredo.ui.acceptance.test.config.spring.TestConfig;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -20,7 +20,7 @@ public class WebDriverHooks {
     private SharedDriver sharedDriver;
 
     @Autowired
-    private World world;
+    private TestWorld testWorld;
 
     /**
      * Delete all cookies at the start of each ui scenario to avoid

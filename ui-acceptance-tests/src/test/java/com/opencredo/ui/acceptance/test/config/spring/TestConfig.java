@@ -6,8 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import com.opencredo.ui.acceptance.test.config.webdriver.SharedDriver;
 import com.opencredo.ui.acceptance.test.config.TestProperties;
-import com.opencredo.ui.acceptance.test.common.World;
-import com.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPage;
+import com.opencredo.ui.acceptance.test.common.TestWorld;
 
 /**
  * Spring configuration for autowired objects
@@ -16,8 +15,8 @@ import com.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPage;
 @PropertySource(value = { "classpath:/props-for-ui-tests.properties" })
 public class TestConfig {
     @Bean
-    public World world() {
-        return new World();
+    public TestWorld world() {
+        return new TestWorld();
     }
 
     @Bean

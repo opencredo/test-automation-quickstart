@@ -9,9 +9,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import com.opencredo.ui.acceptance.test.common.World;
-import com.opencredo.ui.acceptance.test.interaction.objects.GoogleSearchPage;
-import com.opencredo.ui.acceptance.test.config.spring.TestConfig;
 
 import static org.junit.Assert.assertTrue;
 

@@ -1,22 +1,20 @@
 package com.opencredo.api.acceptance.test.step.definitions;
 
-import com.opencredo.api.acceptance.test.common.World;
+import com.opencredo.api.acceptance.test.common.TestWorld;
 import cucumber.api.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- * Common methods for all step definitions
- */
 public abstract class AbstractStepDefinition {
 
     protected Scenario scenario;
 
     @Autowired
-    protected World world;
+    protected TestWorld testWorld;
 
     /**
      * Get a reference to the current cucumber scenario
      * Supports writing text and xml to report within test steps
+     *
      * @param scenario
      */
     public void before(Scenario scenario) {

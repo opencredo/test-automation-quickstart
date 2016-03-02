@@ -1,6 +1,6 @@
 package com.opencredo.ui.acceptance.test.step.definitions;
 
-import com.opencredo.ui.acceptance.test.common.World;
+import com.opencredo.ui.acceptance.test.common.TestWorld;
 import cucumber.api.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +12,7 @@ public abstract class AbstractStepDefinition {
     protected Scenario scenario;
 
     @Autowired
-    protected World world;
+    protected TestWorld testWorld;
 
     /**
      * Get a reference to the current cucumber scenario
