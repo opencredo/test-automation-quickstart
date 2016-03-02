@@ -12,13 +12,13 @@
     <description>Reactor project for the test automation quickstart</description>
 
     <properties>
-        <junit.version>4.11</junit.version>
-        <cucumber.version>1.2.0</cucumber.version>
+        <cucumber.version>1.2.4</cucumber.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
         <selenium.version>2.48.2</selenium.version>
-        <spring.version>4.1.1.RELEASE</spring.version>
-        <jackson.version>1.9.13</jackson.version>
-        <apache.httpclient.version>4.3.5</apache.httpclient.version>
-        <surefire.maven.plugin.version>2.17</surefire.maven.plugin.version>
+        <jackson.version>2.7.2</jackson.version>
+        <httpclient.version>4.5.2</httpclient.version>
+        <assertj.version>3.3.0</assertj.version>
+        <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
         <jmeter.maven.plugin.version>1.10.0</jmeter.maven.plugin.version>
         <jmeter.graph.maven.plugin.version>0.1.0</jmeter.graph.maven.plugin.version>
         <jmeter.plugins.version>1.0.0</jmeter.plugins.version>
@@ -74,62 +74,62 @@
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>1.2.4</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>1.2.4</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>info.cukes</groupId>
             <artifactId>cucumber-spring</artifactId>
-            <version>1.2.4</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.2.5.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.2</version>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.7.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.7.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.7.2</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.3.0</version>
+            <version>${assertj.version}</version>
         </dependency>
     </dependencies>
 </project>
