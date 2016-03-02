@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:cucumber/",
         tags = { "@ui-demo", "~@ignore" },
-        format = { "json:target/UIDemonstrationAT.json", "html:target/cucumber-report/UIDemonstrationAT" })
+        format = { "html:target/cucumber-report/UIDemonstrationAT" })
 public class UiDemonstrationAT
 {
 }
