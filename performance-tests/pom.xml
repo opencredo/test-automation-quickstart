@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>test-automation-reactor</artifactId>
-        <groupId>com.opencredo.test.automation.quickstart</groupId>
+        <artifactId>test-automation-quickstart</artifactId>
+        <groupId>com.opencredo.test</groupId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,6 +12,9 @@
     <artifactId>performance-tests</artifactId>
 
     <properties>
+        <jmeter.maven.plugin.version>1.10.0</jmeter.maven.plugin.version>
+        <jmeter.graph.maven.plugin.version>0.1.0</jmeter.graph.maven.plugin.version>
+        <jmeter.plugins.version>1.0.0</jmeter.plugins.version>
         <perfTest.hostName>www.google.co.uk</perfTest.hostName>
         <perfTest.threadCount>1</perfTest.threadCount>
         <perfTest.durationSeconds>10</perfTest.durationSeconds>

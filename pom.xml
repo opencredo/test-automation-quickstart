@@ -3,8 +3,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.opencredo.test.automation.quickstart</groupId>
-    <artifactId>test-automation-reactor</artifactId>
+    <groupId>com.opencredo.test</groupId>
+    <artifactId>test-automation-quickstart</artifactId>
     <packaging>pom</packaging>
     <version>0.1.0-SNAPSHOT</version>
 
@@ -12,16 +12,7 @@
     <description>Reactor project for the test automation quickstart</description>
 
     <properties>
-        <cucumber.version>1.2.4</cucumber.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <selenium.version>2.52.0</selenium.version>
-        <jackson.version>2.7.2</jackson.version>
-        <httpclient.version>4.5.2</httpclient.version>
-        <assertj.version>3.3.0</assertj.version>
         <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
-        <jmeter.maven.plugin.version>1.10.0</jmeter.maven.plugin.version>
-        <jmeter.graph.maven.plugin.version>0.1.0</jmeter.graph.maven.plugin.version>
-        <jmeter.plugins.version>1.0.0</jmeter.plugins.version>
         <acceptance.test.parallel.count>2</acceptance.test.parallel.count>
     </properties>
 
@@ -45,6 +36,7 @@
             </activation>
             <id>default</id>
             <modules>
+                <module>acceptance-tests-common</module>
                 <module>ui-acceptance-tests</module>
                 <module>api-acceptance-tests</module>
                 <module>performance-tests</module>
@@ -53,12 +45,14 @@
         <profile>
             <id>ui-acceptance-tests</id>
             <modules>
+                <module>acceptance-tests-common</module>
                 <module>ui-acceptance-tests</module>
             </modules>
         </profile>
         <profile>
             <id>api-acceptance-tests</id>
             <modules>
+                <module>acceptance-tests-common</module>
                 <module>api-acceptance-tests</module>
             </modules>
         </profile>
@@ -69,67 +63,4 @@
 	    </modules>
         </profile>
     </profiles>
-
-    <dependencies>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-spring</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>${httpclient.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>${assertj.version}</version>
-        </dependency>
-    </dependencies>
 </project>
