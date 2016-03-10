@@ -35,7 +35,7 @@
                             <!-- Directory where the cucumber report files shall be written  -->
                             <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
                             <!-- comma separated list of output formats -->
-                            <format>json</format>
+                            <format>html</format>
                             <!-- CucumberOptions.strict property -->
                             <strict>true</strict>
                             <!-- CucumberOptions.monochrome property -->

@@ -60,14 +60,15 @@ To run performance tests only, navigate to test-automation-quickstart directory 
 
 Reports for each module are written into their respective /target directories after a successful run.
 
-UI acceptance tests result in a HTML report for each test class being generated in test-automation-quickstart/ui-acceptance-tests/target/cucumber-report/.
+UI acceptance tests result in a HTML report for each feature in test-automation-quickstart/ui-acceptance-tests/target/cucumber-parallel/.
 In the case of test failures, a screen-shot of the UI at the point of failure is embedded into the report.
 
-API acceptance tests result in a HTML report for each test class being generated in test-automation-quickstart/api-acceptance-tests/target/cucumber-report/.
+API acceptance tests result in a HTML report for each feature in test-automation-quickstart/api-acceptance-tests/target/cucumber-parallel/.
 
 Performance tests result in a .jtl results file and .png graphs showing response times and transactions per second, generated in test-automation-quickstart/performance-tests/target/jmeter/results
 
 *NOTE*:
-As mentioned, cucumber reports are written to a separate file for each test class (*AT.class). This approach supports running tests in parallel.
+As mentioned, cucumber reports are written to a separate file for each feature. This occurs as a result of running tests in parallel, meaning that you do not get a single unified test report.
 If using CI, these individual reports can be joined using plugins such as the Jenkins Cucumber-JVM-Reports plugin.
+
 For an alternative approach to combining the cucumber reports, see the [parallel testing blog post on OpenCredo.com](http://www.opencredo.com/2013/07/02/running-cucumber-jvm-tests-in-parallel)
