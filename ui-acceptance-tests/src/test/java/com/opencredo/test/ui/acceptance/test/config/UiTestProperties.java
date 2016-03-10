@@ -1,4 +1,4 @@
-package com.opencredo.test.config;
+package com.opencredo.test.ui.acceptance.test.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;

@@ -1,6 +1,6 @@
-package com.opencredo.test.interaction.ui.objects;
+package com.opencredo.test.ui.acceptance.test.interaction.objects;
 
-import com.opencredo.test.config.webdriver.WaitConditions;
+import com.opencredo.test.ui.acceptance.test.config.webdriver.WaitConditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 

@@ -1,6 +1,6 @@
-package com.opencredo.test.config.webdriver;
+package com.opencredo.test.ui.acceptance.test.config.webdriver;
 
-import com.opencredo.test.config.spring.UiTestConfig;
+import com.opencredo.test.ui.acceptance.test.config.spring.UiTestConfig;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;

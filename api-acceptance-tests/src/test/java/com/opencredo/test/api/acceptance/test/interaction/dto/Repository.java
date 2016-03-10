@@ -1,4 +1,4 @@
-package com.opencredo.test.interaction.dto;
+package com.opencredo.test.api.acceptance.test.interaction.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -1,4 +1,4 @@
-package com.opencredo.test.config.webdriver;
+package com.opencredo.test.ui.acceptance.test.config.webdriver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;

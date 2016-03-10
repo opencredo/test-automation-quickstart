@@ -12,6 +12,14 @@
     <description>Reactor project for the test automation quickstart</description>
 
     <properties>
+        <cucumber.version>1.2.4</cucumber.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <assertj.version>3.3.0</assertj.version>
+
+        <selenium.version>2.52.0</selenium.version>
+        <jackson.version>2.7.2</jackson.version>
+        <httpclient.version>4.5.2</httpclient.version>
+
         <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
         <acceptance.test.parallel.count>2</acceptance.test.parallel.count>
     </properties>
@@ -63,4 +71,47 @@
 	    </modules>
         </profile>
     </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -24,7 +24,6 @@ The framework was first introduced on the [OpenCredo.com Blog](http://www.opencr
 * JUnit
 * Spring
 * Selenium Webdriver
-* Apache HTTPClient
 * Jackson
 * JMeter
 
@@ -34,7 +33,7 @@ In order to utilise this project you need to have the following installed locall
 
 * Maven 3
 * Firefox 42.0 or higher (used by default for UI tests, this can be changed in the code)
-* Java 1.7
+* Java 1.8
 
 ##Usage
 

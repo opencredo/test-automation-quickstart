@@ -1,9 +1,9 @@
-package com.opencredo.test.config.spring;
+package com.opencredo.test.api.acceptance.test.config.spring;
 
 import com.opencredo.test.TestWorld;
-import com.opencredo.test.config.ApiTestProperties;
-import com.opencredo.test.interaction.api.objects.GithubApi;
-import com.opencredo.test.interaction.api.objects.GithubStatusApi;
+import com.opencredo.test.api.acceptance.test.config.ApiTestProperties;
+import com.opencredo.test.api.acceptance.test.interaction.api.objects.GithubApi;
+import com.opencredo.test.api.acceptance.test.interaction.api.objects.GithubStatusApi;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.context.annotation.Bean;
@@ -13,7 +13,7 @@ import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
 @Configuration
-@PropertySource(value = { "classpath:/props-for-api-tests.properties" })
+@PropertySource(value = {"classpath:/props-for-api-tests.properties"})
 public class ApiTestConfig {
     @Bean
     public TestWorld testWorld() {

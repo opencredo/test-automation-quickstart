@@ -1,11 +1,13 @@
 package com.opencredo.test.ui.acceptance.test.step.definitions;
 
 import com.opencredo.test.TestWorld;
+import com.opencredo.test.ui.acceptance.test.config.spring.UiTestConfig;
 import cucumber.api.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 
+@ContextConfiguration(classes= UiTestConfig.class)
 public abstract class AbstractStepDefinition {
-
     protected Scenario scenario;
 
     @Autowired
