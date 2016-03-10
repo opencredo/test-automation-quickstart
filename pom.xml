@@ -13,6 +13,7 @@
 
     <properties>
         <cucumber.version>1.2.4</cucumber.version>
+        <cucumber.jvm.parallel.version>1.0.1</cucumber.jvm.parallel.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <assertj.version>3.3.0</assertj.version>
 

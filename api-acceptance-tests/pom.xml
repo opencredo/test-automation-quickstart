@@ -15,7 +15,7 @@
             <plugin>
                 <groupId>com.github.temyers</groupId>
                 <artifactId>cucumber-jvm-parallel-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>${cucumber.jvm.parallel.version}</version>
                 <executions>
                     <execution>
                         <id>generateRunners</id>
