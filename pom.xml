@@ -16,6 +16,8 @@
         <cucumber.jvm.parallel.version>1.0.1</cucumber.jvm.parallel.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <assertj.version>3.3.0</assertj.version>
+        <javamail.version>1.4.4</javamail.version>
+
 
         <selenium.version>2.52.0</selenium.version>
         <jackson.version>2.7.2</jackson.version>
@@ -118,7 +120,7 @@
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4.4</version>
+            <version>${javamail.version}</version>
         </dependency>
     </dependencies>
 </project>
