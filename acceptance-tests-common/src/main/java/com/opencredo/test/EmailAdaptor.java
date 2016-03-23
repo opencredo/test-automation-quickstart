@@ -80,6 +80,20 @@ public class EmailAdaptor {
         inbox.close(true);
     }
 
+    private static final int MAX_MESSAGES_TO_KEEP = 50000;
+
+    // CAUTION! Only use this on email accounts you don't care about old emails on!
+     public void pruneOldEmails() throws MessagingException {
+        final Folder inbox = store.getFolder(INBOX_FOLDER);
+        inbox.open(Folder.READ_WRITE);
+
+        Arrays.asList(inbox.getMessages()).stream()
+                .filter(message -> message.getMessageNumber() > MAX_MESSAGES_TO_KEEP)
+                .forEach(this::deleteMessage);
+
+        inbox.close(true);
+    }
+
     public List<Message> getTestEmails() throws MessagingException {
         final Folder inbox = store.getFolder(INBOX_FOLDER);
         inbox.open(Folder.READ_ONLY);

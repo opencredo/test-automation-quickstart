@@ -1,4 +1,4 @@
-@api-demo
+@email-demo
 Feature: Demonstrate the Email API acceptance testing framework
 
   # Before running these tests, adjust the email settings in EmailAdaptor.java to your email account
