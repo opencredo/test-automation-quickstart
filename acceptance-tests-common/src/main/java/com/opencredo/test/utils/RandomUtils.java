@@ -5,11 +5,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.*;
 
 public class RandomUtils {
-
-    public static String randomString(int length) {
-        throw new NotImplementedException();
-    }
-
     protected static Random random = new Random(System.currentTimeMillis());
     public static String alphaCharacters = "abcdefghijklmnopqrstuvwxyz";
     public static String numericCharacters = "0123456789";
