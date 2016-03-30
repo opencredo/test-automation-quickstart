@@ -9,8 +9,8 @@ public class User {
     public String authToken;
 
     public User() {
-        this.firstName = RandomUtils.randomString(8);
-        this.lastName = RandomUtils.randomString(8);
+        this.firstName = RandomUtils.randomAlphaString(8);
+        this.lastName = RandomUtils.randomAlphaString(8);
 
         this.userName = firstName.charAt(0) + lastName;
     }

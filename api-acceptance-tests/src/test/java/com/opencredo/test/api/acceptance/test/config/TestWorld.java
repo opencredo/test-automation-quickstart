@@ -8,7 +8,7 @@ public class TestWorld {
     public String USER_PASSWORD = "Testing123!";
 
     public HashMap<String, String> sharedState = new HashMap<>();
-    private HashMap<String, User> users;
+    private HashMap<String, User> users = new HashMap<>();
 
     public void addUser(String userAlias, User user) {
         users.put(userAlias, user);

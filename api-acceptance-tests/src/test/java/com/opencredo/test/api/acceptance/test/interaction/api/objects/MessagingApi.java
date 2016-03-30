@@ -27,6 +27,11 @@ public class MessagingApi extends AbstractApiObject {
 
     public void sendMessage(String senderUserName, String senderAuthToken, String recipientUserName, String message) {
         //in a real test, this would interact with the system to create a new message
-        messages.add(new Message());
+        messages.add(new Message(senderUserName, recipientUserName, message));
+    }
+
+    public List<Message> getMessages() {
+        //in a real test, this would interact with the system to retrieve messages (probably for a specific user)
+        return messages;
     }
 }

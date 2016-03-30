@@ -3,11 +3,14 @@ package com.opencredo.test.api.acceptance.test.step.definitions;
 import com.opencredo.test.api.acceptance.test.interaction.api.objects.MessagingApi;
 import com.opencredo.test.api.acceptance.test.interaction.dto.User;
 import com.opencredo.test.utils.RandomUtils;
+import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -39,10 +42,25 @@ public class MessagingStepDefs extends AbstractStepDefinition {
         User recipient = testWorld.getUserByAlias(userAlias);
         User sender = testWorld.getCurrentUser();
 
-        String message = RandomUtils.randomString(20);
+        String message = RandomUtils.randomAlphaString(20);
 
         messagingApi.sendMessage(sender.userName, sender.authToken, recipient.userName, message);
     }
+
+    @Then("^\"([^\"]*)\" should have received a message from \"([^\"]*)\"$")
+    public void shouldHaveReceivedAMessageFrom(String recipientUserAlias, String senderUserAlias) throws Throwable {
+        User recipient = testWorld.getUserByAlias(recipientUserAlias);
+        User sender = testWorld.getUserByAlias(senderUserAlias);
+
+        assertThat(messagingApi.getMessages())
+                .filteredOn("recipientUserName", recipient.userName)
+                .extracting("senderUserName")
+                .contains(sender.userName);
+    }
+
+    /**
+     *  Helper methods
+     */
 
     private void createUser(String userAlias) {
         User newUser = new User();
@@ -60,4 +78,6 @@ public class MessagingStepDefs extends AbstractStepDefinition {
         testWorld.currentUserAlias = userAlias;
         testWorld.addUser(userAlias, user);
     }
+
+
 }
