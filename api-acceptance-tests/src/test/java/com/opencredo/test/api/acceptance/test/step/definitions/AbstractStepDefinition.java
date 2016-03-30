@@ -1,6 +1,6 @@
 package com.opencredo.test.api.acceptance.test.step.definitions;
 
-import com.opencredo.test.TestWorld;
+import com.opencredo.test.api.acceptance.test.config.TestWorld;
 import com.opencredo.test.api.acceptance.test.config.spring.ApiTestConfig;
 import cucumber.api.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,4 +14,8 @@ public class ApiTestProperties {
     public String getGithubApiUrl() {
         return environment.getProperty("api.acceptance.test.github.api");
     }
+
+    public String getMessagingApiUrl() {
+        return environment.getProperty("api.acceptance.test.messaging.api");
+    }
 }
