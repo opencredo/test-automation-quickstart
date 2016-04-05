@@ -5,7 +5,7 @@ import com.opencredo.test.api.acceptance.test.interaction.dto.User;
 import java.util.HashMap;
 
 public class TestWorld {
-    public String USER_PASSWORD = "Testing123!";
+    public static final String USER_PASSWORD = "Testing123!";
 
     public HashMap<String, String> sharedState = new HashMap<>();
     private HashMap<String, User> users = new HashMap<>();

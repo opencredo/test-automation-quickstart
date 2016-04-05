@@ -3,14 +3,12 @@ package com.opencredo.test.api.acceptance.test.step.definitions;
 import com.opencredo.test.api.acceptance.test.interaction.api.objects.MessagingApi;
 import com.opencredo.test.api.acceptance.test.interaction.dto.User;
 import com.opencredo.test.utils.RandomUtils;
-import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
