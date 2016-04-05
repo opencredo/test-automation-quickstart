@@ -1,9 +1,10 @@
 package com.opencredo.test.api.acceptance.test.config.spring;
 
-import com.opencredo.test.TestWorld;
+import com.opencredo.test.api.acceptance.test.config.TestWorld;
 import com.opencredo.test.api.acceptance.test.config.ApiTestProperties;
 import com.opencredo.test.api.acceptance.test.interaction.api.objects.GithubApi;
 import com.opencredo.test.api.acceptance.test.interaction.api.objects.GithubStatusApi;
+import com.opencredo.test.api.acceptance.test.interaction.api.objects.MessagingApi;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.context.annotation.Bean;
@@ -34,6 +35,9 @@ public class ApiTestConfig {
     public GithubStatusApi githubStatus() {
         return new GithubStatusApi(properties().getGithubStatusApiUrl());
     }
+
+    @Bean
+    public MessagingApi messagingApi() { return new MessagingApi(properties().getMessagingApiUrl());}
 
     @Bean
     public HttpClient httpClient() {
