@@ -24,7 +24,7 @@
         <httpclient.version>4.5.2</httpclient.version>
 
         <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
-        <acceptance.test.parallel.count>2</acceptance.test.parallel.count>
+        <acceptance.test.parallel.count>4</acceptance.test.parallel.count>
     </properties>
 
     <build>

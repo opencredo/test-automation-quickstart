@@ -41,7 +41,7 @@
                             <!-- CucumberOptions.monochrome property -->
                             <monochrome>true</monochrome>
                             <!-- The tags to run, maps to CucumberOptions.tags property -->
-                            <tags>"~@ignore"</tags>
+                            <tags>"@ui-demo-parallel","~@ignore"</tags>
                             <!-- If set to true, only feature files containing the required tags shall be generated. -->
                             <!-- Excluded tags (~@notMe) are ignored. -->
                             <filterFeaturesByTags>true</filterFeaturesByTags>
@@ -62,7 +62,7 @@
                         </goals>
                         <configuration>
                             <forkCount>${acceptance.test.parallel.count}</forkCount>
-                            <reuseForks>true</reuseForks>
+                            <reuseForks>false</reuseForks>
                             <includes>
                                 <include>**/*IT.class</include>
                             </includes>
