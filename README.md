@@ -1,7 +1,7 @@
 
 #test-automation-quickstart
 
-Java quickstart project for test automation, covering performance, ui acceptance and api acceptance testing.
+Java quickstart project for test automation, covering performance, ui acceptance, api acceptance testing and security testing.
 Created with lessons learned from a large number of development projects to provide all commonly required components and concepts.
 The framework was first introduced on the [OpenCredo.com Blog](http://www.opencredo.com/2014/11/04/test-automation-quickstart-framework/).
 
@@ -16,6 +16,7 @@ The framework was first introduced on the [OpenCredo.com Blog](http://www.opencr
 * Mavenised performance tests
 * Externalised test configuration
 * Commonly used test utility classes
+* Simple security tests
 
 ##Tools
 
@@ -26,6 +27,7 @@ The framework was first introduced on the [OpenCredo.com Blog](http://www.opencr
 * Selenium Webdriver
 * Jackson
 * JMeter
+* OWASP Zed Attack Proxy
 
 ##Requirements
 
@@ -34,10 +36,11 @@ In order to utilise this project you need to have the following installed locall
 * Maven 3
 * Firefox 42.0 or higher (used by default for UI tests, this can be changed in the code)
 * Java 1.8
+* ZAP 2.5.0
 
 ##Usage
 
-The project is broken into separate modules for API, UI and Performance testing. Each of these modules can be utilised independently of the others using maven profiles.
+The project is broken into separate modules for API, UI, Performance and Security testing. Each of these modules can be utilised independently of the others using maven profiles.
 
 To run all modules, navigate to test-automation-quickstart directory and run:
 
@@ -54,6 +57,10 @@ To run API acceptance tests only, navigate to test-automation-quickstart directo
 To run performance tests only, navigate to test-automation-quickstart directory and run:
 
 `mvn clean install -Pperformance-tests`
+
+To run security tests only, navigate to test-automation-quickstart directory and run:
+
+`mvn clean install -Psecurity-acceptance-tests`
 
 ##Reporting
 
