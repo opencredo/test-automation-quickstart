@@ -36,7 +36,7 @@ In order to utilise this project you need to have the following installed locall
 * Maven 3
 * Firefox 42.0 or higher (used by default for UI tests, this can be changed in the code)
 * Java 1.8
-* ZAP 2.5.0
+* ZAP 2.5.0 (Run it in deamon mode using the following command )
 
 ##Usage
 
@@ -72,6 +72,9 @@ In the case of test failures, a screen-shot of the UI at the point of failure is
 API acceptance tests result in a HTML report for each feature in test-automation-quickstart/api-acceptance-tests/target/cucumber-parallel/.
 
 Performance tests result in a .jtl results file and .png graphs showing response times and transactions per second, generated in test-automation-quickstart/performance-tests/target/jmeter/results
+
+Security acceptance tests result in a HTML report for each feature in test-automation-quickstart/security-acceptance-tests/target/cucumber-parallel/.
+They will also generate a security risks HTML report in test-automation-quickstart/security-acceptance-tests/security-reports/security-report.html.
 
 *NOTE*:
 As mentioned, cucumber reports are written to a separate file for each feature. This occurs as a result of running tests in parallel, meaning that you do not get a single unified test report.

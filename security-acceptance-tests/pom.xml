@@ -26,7 +26,7 @@
                         <configuration>
                             <!-- Mandatory -->
                             <!-- comma separated list of package names to scan for glue code -->
-                            <glue>com.opencredo.test.ui.acceptance.test.step.definitions</glue>
+                            <glue>com.opencredo.test.security.acceptance.test.step.definitions</glue>
                             <!-- These are the default values -->
                             <!-- Where to output the generated Junit tests -->
                             <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
