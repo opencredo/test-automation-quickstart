@@ -65,7 +65,7 @@ public class GoogleSearchStepDefs extends AbstractStepDefinition {
     }
 
 
-    @And("^the number of risks per category should not be greater than$")
+    @Then("^the number of risks per category should not be greater than$")
     public void theNumberOfSecurityAlertsShouldNotBeGreaterThan(List<StepDefRisks> risks) throws Throwable {
         List<Alert> alertsList = null;
 
@@ -75,13 +75,13 @@ public class GoogleSearchStepDefs extends AbstractStepDefinition {
             e.printStackTrace();
         }
 
-        List<Alert> lowAlerts = alertsList.stream().filter(a -> a.getRisk().equals(Alert.Risk.Low)).collect(Collectors.toList());
-        List<Alert> mediumAlerts = alertsList.stream().filter(a -> a.getRisk().equals(Alert.Risk.Medium)).collect(Collectors.toList());
-        List<Alert> highAlerts = alertsList.stream().filter(a -> a.getRisk().equals(Alert.Risk.High)).collect(Collectors.toList());
+        List<Alert> lowAlerts = getAlertsWithRisk(alertsList, Alert.Risk.Low);
+        List<Alert> mediumAlerts = getAlertsWithRisk(alertsList, Alert.Risk.Medium);
+        List<Alert> highAlerts = getAlertsWithRisk(alertsList, Alert.Risk.High);
 
-        assertThat(lowAlerts.size() <= risks.get(0).getLow()).as("Low risk Alerts").isTrue();
-        assertThat(mediumAlerts.size() <= risks.get(0).getMedium()).as("Medium risk Alerts").isTrue();
-        assertThat(highAlerts.size() <= risks.get(0).getHigh()).as("High risk Alerts").isTrue();
+        assertThat(lowAlerts.size()).as("Low risk Alerts").isLessThanOrEqualTo(risks.get(0).getLow());
+        assertThat(mediumAlerts.size()).as("Medium risk Alerts").isLessThanOrEqualTo(risks.get(0).getMedium());
+        assertThat(highAlerts.size()).as("High risk Alerts").isLessThanOrEqualTo(risks.get(0).getHigh());
 
         log.info(setBoldText + " Found " + lowAlerts.size() + " low risk alerts: " + setPlainText);
         lowAlerts.forEach(a -> log.info("Alert: " + a.getAlert() + " at URL: " + a.getUrl() + " Parameter: " + a.getParam() + " CWE ID: " + a.getCweId() + " Risk: " + a.getRisk()));
@@ -89,6 +89,10 @@ public class GoogleSearchStepDefs extends AbstractStepDefinition {
         mediumAlerts.forEach(a -> log.info("Alert: " + a.getAlert() + " at URL: " + a.getUrl() + " Parameter: " + a.getParam() + " CWE ID: " + a.getCweId() + " Risk: " + a.getRisk()));
         log.info(setBoldText + " Found " + highAlerts.size() + " high risk alerts: " + setPlainText);
         highAlerts.forEach(a -> log.info("Alert: " + a.getAlert() + " at URL: " + a.getUrl() + " Parameter: " + a.getParam() + " CWE ID: " + a.getCweId() + " Risk: " + a.getRisk()));
+    }
+
+    private List<Alert> getAlertsWithRisk(List<Alert> alertsList, Alert.Risk risk) {
+        return alertsList.stream().filter(a -> a.getRisk().equals(risk)).collect(Collectors.toList());
     }
 
     @After()
