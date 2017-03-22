@@ -1,7 +1,7 @@
 
 #test-automation-quickstart
 
-Java quickstart project for test automation, covering performance, ui acceptance and api acceptance testing.
+Java quickstart project for test automation, covering performance, ui acceptance, api acceptance testing and security testing.
 Created with lessons learned from a large number of development projects to provide all commonly required components and concepts.
 The framework was first introduced on the [OpenCredo.com Blog](http://www.opencredo.com/2014/11/04/test-automation-quickstart-framework/).
 
@@ -16,6 +16,7 @@ The framework was first introduced on the [OpenCredo.com Blog](http://www.opencr
 * Mavenised performance tests
 * Externalised test configuration
 * Commonly used test utility classes
+* Simple security tests
 
 ##Tools
 
@@ -26,6 +27,7 @@ The framework was first introduced on the [OpenCredo.com Blog](http://www.opencr
 * Selenium Webdriver
 * Jackson
 * JMeter
+* OWASP Zed Attack Proxy
 
 ##Requirements
 
@@ -34,10 +36,11 @@ In order to utilise this project you need to have the following installed locall
 * Maven 3
 * Firefox 42.0 or higher (used by default for UI tests, this can be changed in the code)
 * Java 1.8
+* ZAP 2.5.0 (Run it in deamon mode using the following command ./zap.sh -daemon -port 8888 -config api.disablekey=true`)
 
 ##Usage
 
-The project is broken into separate modules for API, UI and Performance testing. Each of these modules can be utilised independently of the others using maven profiles.
+The project is broken into separate modules for API, UI, Performance and Security testing. Each of these modules can be utilised independently of the others using maven profiles.
 
 To run all modules, navigate to test-automation-quickstart directory and run:
 
@@ -55,6 +58,10 @@ To run performance tests only, navigate to test-automation-quickstart directory 
 
 `mvn clean install -Pperformance-tests`
 
+To run security tests only, navigate to test-automation-quickstart directory and run:
+
+`mvn clean install -Psecurity-acceptance-tests`
+
 ##Reporting
 
 Reports for each module are written into their respective /target directories after a successful run.
@@ -65,6 +72,9 @@ In the case of test failures, a screen-shot of the UI at the point of failure is
 API acceptance tests result in a HTML report for each feature in test-automation-quickstart/api-acceptance-tests/target/cucumber-parallel/.
 
 Performance tests result in a .jtl results file and .png graphs showing response times and transactions per second, generated in test-automation-quickstart/performance-tests/target/jmeter/results
+
+Security acceptance tests result in a HTML report for each feature in test-automation-quickstart/security-acceptance-tests/target/cucumber-parallel/.
+They will also generate a security risks HTML report in test-automation-quickstart/security-acceptance-tests/security-reports/security-report.html.
 
 *NOTE*:
 As mentioned, cucumber reports are written to a separate file for each feature. This occurs as a result of running tests in parallel, meaning that you do not get a single unified test report.
