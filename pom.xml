@@ -18,7 +18,7 @@
         <spring.version>4.2.5.RELEASE</spring.version>
         <assertj.version>3.3.0</assertj.version>
         <javamail.version>1.4.4</javamail.version>
-        <selenium.version>3.3.1</selenium.version>
+        <selenium.version>2.52.0</selenium.version>
         <jackson.version>2.7.2</jackson.version>
         <httpclient.version>4.5.2</httpclient.version>
         <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
