@@ -23,6 +23,7 @@ public class SharedDriver extends EventFiringWebDriver {
             quitGlobalInstance();
         }
     };
+    public WebDriver driver;
 
     private static void quitGlobalInstance() {
         WebDriver driver = REAL_DRIVER;
@@ -37,8 +38,8 @@ public class SharedDriver extends EventFiringWebDriver {
             switch (defaultBrowser){
                 case "firefox":
                     try {
-                        DesiredCapabilities capability = DesiredCapabilities.firefox();
-                        REAL_DRIVER = new RemoteWebDriver(new URL(defaultHubUrl), capability);
+                        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                        REAL_DRIVER = new RemoteWebDriver(new URL(defaultHubUrl), capabilities);
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                     }
