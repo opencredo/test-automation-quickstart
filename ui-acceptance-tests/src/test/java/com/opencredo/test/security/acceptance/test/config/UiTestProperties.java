@@ -17,4 +17,16 @@ public class UiTestProperties {
     public int getSeleniumWaitTimeOutSeconds() {
         return environment.getProperty("ui.acceptance.test.selenium.wait.timeout.seconds", Integer.class, 10);
     }
+
+    public boolean isGridEnabled(){
+        return Boolean.valueOf(environment.getProperty("ui.acceptance.test.selenium.grid.enabled"));
+    }
+
+    public String getDefaultBrowser(){
+        return environment.getProperty("ui.acceptance.test.selenium.default.browser");
+    }
+
+    public String getDefaultHubUrl(){
+        return environment.getProperty("ui.acceptance.test.selenium.default.hub.url");
+    }
 }

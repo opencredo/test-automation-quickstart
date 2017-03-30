@@ -19,6 +19,8 @@ public class UiTestConfig {
 
     @Bean
     public SharedDriver driver() {
+        if (properties().isGridEnabled())
+            return new SharedDriver(properties().getDefaultBrowser(), properties().getDefaultHubUrl());
         return new SharedDriver();
     }
 
