@@ -1,4 +1,4 @@
-package com.opencredo.test.security.acceptance.test.config;
+package com.opencredo.test.ui.acceptance.test.config;
 
 import java.util.HashMap;
 

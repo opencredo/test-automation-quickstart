@@ -1,4 +1,4 @@
-package com.opencredo.test.security.acceptance.test.interaction.objects;
+package com.opencredo.test.ui.acceptance.test.interaction.objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

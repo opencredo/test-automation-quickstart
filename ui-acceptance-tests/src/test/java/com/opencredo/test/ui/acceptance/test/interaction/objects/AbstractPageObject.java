@@ -1,8 +1,17 @@
-package com.opencredo.test.security.acceptance.test.interaction.objects;
+package com.opencredo.test.ui.acceptance.test.interaction.objects;
 
-import com.opencredo.test.security.acceptance.test.config.webdriver.WaitConditions;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.*;
+import com.opencredo.test.ui.acceptance.test.config.webdriver.WaitConditions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Reusable methods for all page objects

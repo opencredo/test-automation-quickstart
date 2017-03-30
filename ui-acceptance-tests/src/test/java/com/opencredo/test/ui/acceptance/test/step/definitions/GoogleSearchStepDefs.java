@@ -1,6 +1,6 @@
-package com.opencredo.test.security.acceptance.test.step.definitions;
+package com.opencredo.test.ui.acceptance.test.step.definitions;
 
-import com.opencredo.test.security.acceptance.test.interaction.objects.GoogleSearchPageObject;
+import com.opencredo.test.ui.acceptance.test.interaction.objects.GoogleSearchPageObject;
 import cucumber.api.Scenario;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
