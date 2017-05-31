@@ -38,7 +38,7 @@ In order to utilise this project you need to have the following installed locall
 * Java 1.8
 * ZAP 2.5.0 (Run it in deamon mode using the following command: `./zap.sh -daemon -port 8888 -config api.disablekey=true`)
 
-##Usage
+## Usage
 
 The project is broken into separate modules for API, UI, Performance and Security testing. Each of these modules can be utilised independently of the others using maven profiles.
 
