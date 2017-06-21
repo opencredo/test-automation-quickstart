@@ -49,8 +49,16 @@ public class EmailAdaptor {
     }
 
     public EmailAdaptor connect() throws MessagingException {
-        store = session.getStore(IMAP_PROTOCOL);
-        store.connect(IMAP_HOST, EMAIL_ADDRESS, PASSWORD);
+        try {
+            store = session.getStore(IMAP_PROTOCOL);
+            store.connect(IMAP_HOST, EMAIL_ADDRESS, PASSWORD);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Unable to connect with provided email account credentials ("
+                    + EMAIL_ADDRESS
+                    + ". Please check config in EmailAdaptor.java and try again");
+        }
+
         return this;
     }
 
