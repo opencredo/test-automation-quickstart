@@ -89,4 +89,29 @@ public abstract class AbstractPageObject {
             throw new NoSuchElementException(ex.getMessage() + "\n\nPageSource:\n\n" + getDriver().getPageSource());
         }
     }
+
+    public void screenshot(Scenario scenario, String screenShotName) {
+        try 
+        {
+            scenario.write("Current Page URL is " + sharedDriver.getCurrentUrl());
+            if (sharedDriver.getWrappedDriver() instanceof TakesScreenshot) 
+            {
+            	 File scrFile = (File) sharedDriver.getScreenshotAs(OutputType.FILE);
+            	 try 
+            	 {
+                     FileUtils.copyFile(scrFile, new File(screenShotName+".png"));
+                 } 
+            	 catch (IOException e) 
+            	 {
+                     e.printStackTrace();
+                 }
+            }
+        } 
+        catch (Throwable somePlatformsDontSupportScreenshotsOrBrowserHasDied) 
+        {
+            somePlatformsDontSupportScreenshotsOrBrowserHasDied.printStackTrace(System.err);
+        }
+    }    
+
+
 }
