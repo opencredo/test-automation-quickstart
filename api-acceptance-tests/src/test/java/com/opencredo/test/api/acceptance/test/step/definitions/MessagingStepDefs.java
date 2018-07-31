@@ -1,6 +1,7 @@
 package com.opencredo.test.api.acceptance.test.step.definitions;
 
 import com.opencredo.test.api.acceptance.test.interaction.api.objects.MessagingApi;
+import com.opencredo.test.api.acceptance.test.interaction.dto.Message;
 import com.opencredo.test.api.acceptance.test.interaction.dto.User;
 import com.opencredo.test.utils.RandomUtils;
 import cucumber.api.Scenario;
@@ -11,6 +12,7 @@ import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,9 +27,9 @@ public class MessagingStepDefs extends AbstractStepDefinition {
 
     @Given("^the following users:$")
     public void theFollowingUsers(List<String> userAliases) throws Throwable {
-       for(String userAlias : userAliases) {
-           createUser(userAlias);
-       }
+        for (String userAlias : userAliases) {
+            createUser(userAlias);
+        }
     }
 
     @When("^I log in as \"([^\"]*)\"$")
@@ -50,14 +52,16 @@ public class MessagingStepDefs extends AbstractStepDefinition {
         User recipient = testWorld.getUserByAlias(recipientUserAlias);
         User sender = testWorld.getUserByAlias(senderUserAlias);
 
-        assertThat(messagingApi.getMessages())
-                .filteredOn("recipientUserName", recipient.userName)
-                .extracting("senderUserName")
-                .contains(sender.userName);
+        List<String> peopleWhoSentMessagesToUser = messagingApi.getMessages().stream()
+                .filter(m -> m.recipientUserName.equals(recipient.userName))
+                .map(m -> m.senderUserName)
+                .collect(Collectors.toList());
+
+        assertThat(peopleWhoSentMessagesToUser).contains(sender.userName);
     }
 
     /**
-     *  Helper methods
+     * Helper methods
      */
 
     private void createUser(String userAlias) {
