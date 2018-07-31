@@ -15,7 +15,7 @@
     <properties>
         <cucumber.version>1.2.5</cucumber.version>
         <cucumber.jvm.parallel.version>4.2.0</cucumber.jvm.parallel.version>
-        <spring.version>4.3.9.RELEASE</spring.version>
+        <spring.version>5.0.8.RELEASE</spring.version>
         <assertj.version>3.10.0</assertj.version>
         <javamail.version>1.4.4</javamail.version>
         <selenium.version>3.13.0</selenium.version>
@@ -120,6 +120,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
