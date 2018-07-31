@@ -1,8 +1,8 @@
 package com.opencredo.test.security.acceptance.test.config.spring;
 
+import com.opencredo.test.SharedDriver;
 import com.opencredo.test.security.acceptance.test.config.SecurityTestProperties;
 import com.opencredo.test.security.acceptance.test.config.TestWorld;
-import com.opencredo.test.security.acceptance.test.config.webdriver.SharedDriver;
 import com.opencredo.test.security.acceptance.test.interaction.objects.GoogleSearchPageObject;
 import com.opencredo.test.security.acceptance.test.config.ZapProxy;
 import org.openqa.selenium.Proxy;
@@ -40,7 +40,7 @@ public class SecurityTestConfig {
 
     @Bean
     public SharedDriver driver() {
-        return new SharedDriver(properties().isProxyEnabled(), webDriverProxy());
+        return new SharedDriver(properties().getBrowser(), properties().isProxyEnabled(), webDriverProxy());
     }
 
     @Bean

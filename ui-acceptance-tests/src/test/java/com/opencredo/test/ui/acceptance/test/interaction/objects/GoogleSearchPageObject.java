@@ -1,5 +1,6 @@
 package com.opencredo.test.ui.acceptance.test.interaction.objects;
 
+import com.opencredo.test.SharedDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -8,7 +9,7 @@ public class GoogleSearchPageObject extends AbstractPageObject {
 
     private final By searchTextbox = By.name("q");
 
-    public GoogleSearchPageObject(String baseUrl, WebDriver driver, int waitTimeOutSeconds) {
+    public GoogleSearchPageObject(String baseUrl, SharedDriver driver, int waitTimeOutSeconds) {
         super(baseUrl + PATH, driver, waitTimeOutSeconds);
     }
 

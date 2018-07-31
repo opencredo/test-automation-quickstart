@@ -23,12 +23,9 @@ public class WaitConditions {
 
     public static ExpectedCondition<Boolean> pageContainsText(final String text) {
         return new ExpectedCondition<Boolean>() {
-            private String currentPage = "";
-
             @Override
             public Boolean apply(WebDriver driver) {
-                currentPage = driver.getPageSource();
-                return currentPage.contains(text);
+                return  driver.getPageSource().contains(text);
             }
 
             @Override

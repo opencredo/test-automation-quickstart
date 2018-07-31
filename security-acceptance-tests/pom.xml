@@ -44,7 +44,6 @@
                             <tags>"~@ignore"</tags>
                             <!-- If set to true, only feature files containing the required tags shall be generated. -->
                             <!-- Excluded tags (~@notMe) are ignored. -->
-                            <filterFeaturesByTags>true</filterFeaturesByTags>
                         </configuration>
                     </execution>
                 </executions>
@@ -78,11 +77,6 @@
             <groupId>com.opencredo.test</groupId>
             <artifactId>acceptance-tests-common</artifactId>
             <version>0.1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
         </dependency>
     </dependencies>
 </project>

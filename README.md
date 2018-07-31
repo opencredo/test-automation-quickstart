@@ -36,7 +36,7 @@ In order to utilise this project you need to have the following installed locall
 * Maven 3
 * Chrome and Chromedriver (UI tests use Chrome by default, can be changed in config)
 * Java 1.8
-* ZAP 2.5.0 (Run it in deamon mode using the following command: `./zap.sh -daemon -port 8888 -config api.disablekey=true`)
+* ZAP 2.7.0 (Run it in deamon mode using the following command: `./zap.sh -daemon -port 8888 -config api.disablekey=true`)
 
 In order for the api tests to pass, you will need to configure your test email. You may need to set up a testing email account (free ones can be made on gmail.com). Then you can either edit it in the API properties file, or supplied as maven parameters. E.g.
 

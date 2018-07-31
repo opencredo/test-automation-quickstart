@@ -1,5 +1,6 @@
 package com.opencredo.test.ui.acceptance.test.interaction.objects;
 
+import com.opencredo.test.SharedDriver;
 import com.opencredo.test.ui.acceptance.test.config.webdriver.WaitConditions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -18,10 +19,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class AbstractPageObject {
     private String path;
-    private final WebDriver driver;
+    private final SharedDriver driver;
     private final int waitTimeOutSeconds;
 
-    public AbstractPageObject(String path, WebDriver driver, int waitTimeOutSeconds) {
+    public AbstractPageObject(String path, SharedDriver driver, int waitTimeOutSeconds) {
         this.path = path;
         this.driver = driver;
         this.waitTimeOutSeconds = waitTimeOutSeconds;
@@ -58,7 +59,7 @@ public abstract class AbstractPageObject {
         try {
             return wait.until(isTrue);
         } catch (TimeoutException rte) {
-            throw new TimeoutException(rte.getMessage() + "\n\nPageSource:\n\n" + getDriver().getPageSource());
+            throw new TimeoutException(rte.getMessage());
         }
     }
 
@@ -86,7 +87,7 @@ public abstract class AbstractPageObject {
         try {
             return getDriver().findElement(locator);
         } catch (NoSuchElementException ex) {
-            throw new NoSuchElementException(ex.getMessage() + "\n\nPageSource:\n\n" + getDriver().getPageSource());
+            throw new NoSuchElementException(ex.getMessage());
         }
     }
 }

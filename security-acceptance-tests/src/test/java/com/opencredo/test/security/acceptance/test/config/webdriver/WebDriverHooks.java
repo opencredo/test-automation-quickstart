@@ -1,5 +1,6 @@
 package com.opencredo.test.security.acceptance.test.config.webdriver;
 
+import com.opencredo.test.SharedDriver;
 import com.opencredo.test.security.acceptance.test.config.spring.SecurityTestConfig;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;

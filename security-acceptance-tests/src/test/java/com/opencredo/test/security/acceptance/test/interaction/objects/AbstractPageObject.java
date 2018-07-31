@@ -49,7 +49,7 @@ public abstract class AbstractPageObject {
         try {
             return wait.until(isTrue);
         } catch (TimeoutException rte) {
-            throw new TimeoutException(rte.getMessage() + "\n\nPageSource:\n\n" + getDriver().getPageSource());
+            throw new TimeoutException(rte.getMessage());
         }
     }
 
@@ -62,14 +62,14 @@ public abstract class AbstractPageObject {
         element.submit();
     }
 
-    public void selectDropdownByText(WebElement element, String visibleText){
+    public void selectDropdownByText(WebElement element, String visibleText) {
         Select filterSelect = new Select(element);
         waitForDropdownItems(element);
         filterSelect.selectByVisibleText(visibleText);
     }
 
     private void waitForDropdownItems(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(getDriver(),waitTimeOutSeconds );
+        WebDriverWait wait = new WebDriverWait(getDriver(), waitTimeOutSeconds);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
@@ -77,7 +77,7 @@ public abstract class AbstractPageObject {
         try {
             return getDriver().findElement(locator);
         } catch (NoSuchElementException ex) {
-            throw new NoSuchElementException(ex.getMessage() + "\n\nPageSource:\n\n" + getDriver().getPageSource());
+            throw new NoSuchElementException(ex.getMessage());
         }
     }
 }

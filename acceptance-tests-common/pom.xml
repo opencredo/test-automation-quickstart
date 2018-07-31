@@ -10,4 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>acceptance-tests-common</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

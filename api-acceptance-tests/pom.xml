@@ -44,7 +44,6 @@
                             <tags>"~@ignore"</tags>
                             <!-- If set to true, only feature files containing the required tags shall be generated. -->
                             <!-- Excluded tags (~@notMe) are ignored. -->
-                            <filterFeaturesByTags>true</filterFeaturesByTags>
                         </configuration>
                     </execution>
                 </executions>
