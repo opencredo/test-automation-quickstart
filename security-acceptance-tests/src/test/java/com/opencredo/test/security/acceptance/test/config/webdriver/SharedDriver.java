@@ -2,7 +2,9 @@ package com.opencredo.test.security.acceptance.test.config.webdriver;
 
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -14,13 +16,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
  */
 public class SharedDriver extends EventFiringWebDriver {
     private static WebDriver REAL_DRIVER;
-    private static final Thread CLOSE_THREAD = new Thread() {
-
-        @Override
-        public void run() {
-            quitGlobalInstance();
-        }
-    };
+    private static final Thread CLOSE_THREAD = new Thread(SharedDriver::quitGlobalInstance);
 
     private static void quitGlobalInstance() {
         WebDriver driver = REAL_DRIVER;

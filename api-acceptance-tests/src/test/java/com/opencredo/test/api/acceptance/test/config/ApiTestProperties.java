@@ -2,8 +2,10 @@ package com.opencredo.test.api.acceptance.test.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
 public class ApiTestProperties {
+
     @Autowired
     private Environment environment;
 
@@ -17,5 +19,13 @@ public class ApiTestProperties {
 
     public String getMessagingApiUrl() {
         return environment.getProperty("api.acceptance.test.messaging.api");
+    }
+
+    public String getEmailAddress() {
+        return environment.getProperty("api.acceptance.test.email.address");
+    }
+
+    public String getEmailPassword() {
+        return environment.getProperty("api.acceptance.test.email.password");
     }
 }

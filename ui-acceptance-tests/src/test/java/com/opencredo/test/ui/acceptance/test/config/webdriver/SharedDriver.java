@@ -1,7 +1,10 @@
 package com.opencredo.test.ui.acceptance.test.config.webdriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 /**
@@ -11,13 +14,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
  */
 public class SharedDriver extends EventFiringWebDriver {
     private static WebDriver REAL_DRIVER;
-    private static final Thread CLOSE_THREAD = new Thread() {
-
-    @Override
-    public void run() {
-            quitGlobalInstance();
-        }
-    };
+    private static final Thread CLOSE_THREAD = new Thread(SharedDriver::quitGlobalInstance);
 
     private static void quitGlobalInstance() {
         WebDriver driver = REAL_DRIVER;
@@ -27,15 +24,25 @@ public class SharedDriver extends EventFiringWebDriver {
         }
     }
 
-    private static WebDriver getRealDriver() {
+    private static WebDriver getRealDriver(String browser) {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         if (REAL_DRIVER == null) {
-            REAL_DRIVER = new FirefoxDriver();
+            switch (browser) {
+                case BrowserType.FIREFOX:
+                    REAL_DRIVER = new FirefoxDriver(capabilities);
+                    break;
+                case BrowserType.GOOGLECHROME:
+                    REAL_DRIVER = new ChromeDriver(capabilities);
+                    break;
+                default:
+                    throw new RuntimeException("Framework does not support browser \"" + browser + "\"");
+            }
         }
         return REAL_DRIVER;
     }
 
-    public SharedDriver() {
-        super(getRealDriver());
+    public SharedDriver(String browser) {
+        super(getRealDriver(browser));
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 

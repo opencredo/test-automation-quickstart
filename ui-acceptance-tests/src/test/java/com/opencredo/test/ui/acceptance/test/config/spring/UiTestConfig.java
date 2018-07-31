@@ -19,7 +19,7 @@ public class UiTestConfig {
 
     @Bean
     public SharedDriver driver() {
-        return new SharedDriver();
+        return new SharedDriver(properties().getBrowser());
     }
 
     @Bean
