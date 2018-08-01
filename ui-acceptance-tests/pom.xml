@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>test-automation-quickstart</artifactId>
@@ -29,7 +29,8 @@
                             <glue>com.opencredo.test.ui.acceptance.test.step.definitions</glue>
                             <!-- These are the default values -->
                             <!-- Where to output the generated Junit tests -->
-                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
+                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
+                            </outputDirectory>
                             <!-- The diectory containing your feature files.  -->
                             <featuresDirectory>src/test/resources/cucumber/</featuresDirectory>
                             <!-- Directory where the cucumber report files shall be written  -->

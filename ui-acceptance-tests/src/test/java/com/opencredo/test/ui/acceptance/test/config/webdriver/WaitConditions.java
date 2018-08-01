@@ -25,7 +25,7 @@ public class WaitConditions {
         return new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
-                return  driver.getPageSource().contains(text);
+                return driver.getPageSource().contains(text);
             }
 
             @Override

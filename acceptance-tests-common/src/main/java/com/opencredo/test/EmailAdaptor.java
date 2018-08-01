@@ -23,10 +23,9 @@ public class EmailAdaptor {
     private static final String TEST_EMAIL_SUBJECT = "OpenCredo Test Email";
 
     private final Session session;
-    private Store store;
-
     private final String emailAddress;
     private final String password;
+    private Store store;
 
     public EmailAdaptor(String emailAddress, String password) {
 

@@ -1,13 +1,11 @@
 package com.opencredo.test.utils;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.*;
+import java.util.Random;
 
 public class RandomUtils {
-    protected static Random random = new Random(System.currentTimeMillis());
     public static String alphaCharacters = "abcdefghijklmnopqrstuvwxyz";
     public static String numericCharacters = "0123456789";
+    protected static Random random = new Random(System.currentTimeMillis());
 
     public static synchronized int randomInt(final int min, final int max) {
         return random.nextInt((max - min) + 1) + min;

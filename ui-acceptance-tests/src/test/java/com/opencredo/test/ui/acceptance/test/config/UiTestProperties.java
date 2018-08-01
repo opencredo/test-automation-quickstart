@@ -2,7 +2,6 @@ package com.opencredo.test.ui.acceptance.test.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
 
 /**
  * Used to retrieve properties and make them available to tests

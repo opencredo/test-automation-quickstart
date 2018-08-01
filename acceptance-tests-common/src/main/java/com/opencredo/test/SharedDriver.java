@@ -1,13 +1,13 @@
 package com.opencredo.test;
 
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-import org.openqa.selenium.Proxy;
-import org.openqa.selenium.remote.CapabilityType;
 
 /**
  * Creates a browser session which can be used to interact with a web UI.

@@ -8,9 +8,9 @@ import org.openqa.selenium.support.ui.*;
  * Reusable methods for all page objects
  */
 public abstract class AbstractPageObject {
-    private String path;
     private final WebDriver driver;
     private final int waitTimeOutSeconds;
+    private String path;
 
     public AbstractPageObject(String path, WebDriver driver, int waitTimeOutSeconds) {
         this.path = path;
@@ -32,18 +32,18 @@ public abstract class AbstractPageObject {
     }
 
     public void ensure_is_current() {
-        wait_until_true_or_timeout(WaitConditions.urlContains(path));
+        waitUntilTrueOrTimeout(WaitConditions.urlContains(path));
     }
 
     public boolean is_text_present(String text) {
-        wait_until_true_or_timeout(WaitConditions.pageContainsText(text));
+        waitUntilTrueOrTimeout(WaitConditions.pageContainsText(text));
         return true;
     }
 
     /**
      * wait until condition is true or timeout is reached
      */
-    protected <V> V wait_until_true_or_timeout(ExpectedCondition<V> isTrue) {
+    protected <V> V waitUntilTrueOrTimeout(ExpectedCondition<V> isTrue) {
         Wait<WebDriver> wait = new WebDriverWait(this.driver, waitTimeOutSeconds)
                 .ignoring(StaleElementReferenceException.class);
         try {
