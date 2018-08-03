@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ui-acceptance-tests</artifactId>
+    <artifactId>security-acceptance-tests</artifactId>
     <build>
         <plugins>
             <plugin>
@@ -26,7 +26,7 @@
                         <configuration>
                             <!-- Mandatory -->
                             <!-- comma separated list of package names to scan for glue code -->
-                            <glue>com.opencredo.test.ui.acceptance.test.step.definitions</glue>
+                            <glue>com.opencredo.test.security.acceptance.test.step.definitions</glue>
                             <!-- These are the default values -->
                             <!-- Where to output the generated Junit tests -->
                             <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
@@ -42,7 +42,7 @@
                             <!-- CucumberOptions.monochrome property -->
                             <monochrome>true</monochrome>
                             <!-- The tags to run, maps to CucumberOptions.tags property -->
-                            <tags>"@ui-demo-parallel","~@ignore"</tags>
+                            <tags>"~@ignore"</tags>
                             <!-- If set to true, only feature files containing the required tags shall be generated. -->
                             <!-- Excluded tags (~@notMe) are ignored. -->
                         </configuration>
@@ -55,14 +55,14 @@
                 <version>${surefire.maven.plugin.version}</version>
                 <executions>
                     <execution>
-                        <id>acceptance-test</id>
+                        <id>security-test</id>
                         <phase>integration-test</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
                         <configuration>
                             <forkCount>${acceptance.test.parallel.count}</forkCount>
-                            <reuseForks>false</reuseForks>
+                            <reuseForks>true</reuseForks>
                             <includes>
                                 <include>**/*IT.class</include>
                             </includes>
@@ -78,11 +78,6 @@
             <groupId>com.opencredo.test</groupId>
             <artifactId>acceptance-tests-common</artifactId>
             <version>0.1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
         </dependency>
     </dependencies>
 </project>

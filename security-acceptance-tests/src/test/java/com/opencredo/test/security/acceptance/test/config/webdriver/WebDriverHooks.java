@@ -1,7 +1,7 @@
-package com.opencredo.test.ui.acceptance.test.config.webdriver;
+package com.opencredo.test.security.acceptance.test.config.webdriver;
 
 import com.opencredo.test.SharedDriver;
-import com.opencredo.test.ui.acceptance.test.config.spring.UiTestConfig;
+import com.opencredo.test.security.acceptance.test.config.spring.SecurityTestConfig;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -10,7 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration(classes = UiTestConfig.class)
+@ContextConfiguration(classes = SecurityTestConfig.class)
 public class WebDriverHooks {
 
     @Autowired

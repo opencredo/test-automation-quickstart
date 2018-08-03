@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -12,18 +13,17 @@
     <description>Reactor project for the test automation quickstart</description>
 
     <properties>
-        <cucumber.version>1.2.4</cucumber.version>
-        <cucumber.jvm.parallel.version>1.0.1</cucumber.jvm.parallel.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <assertj.version>3.3.0</assertj.version>
+        <cucumber.version>1.2.5</cucumber.version>
+        <cucumber.jvm.parallel.version>4.2.0</cucumber.jvm.parallel.version>
+        <spring.version>5.0.8.RELEASE</spring.version>
+        <assertj.version>3.10.0</assertj.version>
         <javamail.version>1.4.4</javamail.version>
-
-
-        <selenium.version>2.53.1</selenium.version>
-        <jackson.version>2.7.2</jackson.version>
-        <httpclient.version>4.5.2</httpclient.version>
-
-        <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
+        <selenium.version>3.13.0</selenium.version>
+        <jackson.version>2.9.6</jackson.version>
+        <httpclient.version>4.5.6</httpclient.version>
+        <surefire.maven.plugin.version>2.22.0</surefire.maven.plugin.version>
+        <zap.clientapi.version>1.6.0</zap.clientapi.version>
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
         <acceptance.test.parallel.count>4</acceptance.test.parallel.count>
     </properties>
 
@@ -32,6 +32,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -51,6 +52,7 @@
                 <module>ui-acceptance-tests</module>
                 <module>api-acceptance-tests</module>
                 <module>performance-tests</module>
+                <module>security-acceptance-tests</module>
             </modules>
         </profile>
         <profile>
@@ -67,11 +69,18 @@
                 <module>api-acceptance-tests</module>
             </modules>
         </profile>
-	<profile>
-	    <id>performance-tests</id>
-	    <modules>
-		    <module>performance-tests</module>
-	    </modules>
+        <profile>
+            <id>performance-tests</id>
+            <modules>
+                <module>performance-tests</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>security-acceptance-tests</id>
+            <modules>
+                <module>acceptance-tests-common</module>
+                <module>security-acceptance-tests</module>
+            </modules>
         </profile>
     </profiles>
 
@@ -112,15 +121,25 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>${assertj.version}</version>
         </dependency>
-
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>${javamail.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.zaproxy</groupId>
+            <artifactId>zap-clientapi</artifactId>
+            <version>${zap.clientapi.version}</version>
         </dependency>
     </dependencies>
 </project>

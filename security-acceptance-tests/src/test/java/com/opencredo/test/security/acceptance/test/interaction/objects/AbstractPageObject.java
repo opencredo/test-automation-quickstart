@@ -1,7 +1,6 @@
-package com.opencredo.test.ui.acceptance.test.interaction.objects;
+package com.opencredo.test.security.acceptance.test.interaction.objects;
 
-import com.opencredo.test.SharedDriver;
-import com.opencredo.test.ui.acceptance.test.config.webdriver.WaitConditions;
+import com.opencredo.test.security.acceptance.test.config.webdriver.WaitConditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
@@ -9,11 +8,11 @@ import org.openqa.selenium.support.ui.*;
  * Reusable methods for all page objects
  */
 public abstract class AbstractPageObject {
-    private final SharedDriver driver;
+    private final WebDriver driver;
     private final int waitTimeOutSeconds;
     private String path;
 
-    public AbstractPageObject(String path, SharedDriver driver, int waitTimeOutSeconds) {
+    public AbstractPageObject(String path, WebDriver driver, int waitTimeOutSeconds) {
         this.path = path;
         this.driver = driver;
         this.waitTimeOutSeconds = waitTimeOutSeconds;
@@ -29,14 +28,14 @@ public abstract class AbstractPageObject {
 
     public void goToAndWait() {
         getDriver().navigate().to(path);
-        ensureIsCurrent();
+        ensure_is_current();
     }
 
-    public void ensureIsCurrent() {
+    public void ensure_is_current() {
         waitUntilTrueOrTimeout(WaitConditions.urlContains(path));
     }
 
-    public boolean isTextPresent(String text) {
+    public boolean is_text_present(String text) {
         waitUntilTrueOrTimeout(WaitConditions.pageContainsText(text));
         return true;
     }

@@ -33,3 +33,4 @@ Desktop.ini
 .classpath
 .settings
 .project
+/security-acceptance-tests/security-reports/

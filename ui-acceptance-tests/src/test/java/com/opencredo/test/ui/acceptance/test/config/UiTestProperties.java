@@ -17,4 +17,8 @@ public class UiTestProperties {
     public int getSeleniumWaitTimeOutSeconds() {
         return environment.getProperty("ui.acceptance.test.selenium.wait.timeout.seconds", Integer.class, 10);
     }
+
+    public String getBrowser() {
+        return environment.getProperty("ui.acceptance.test.browser");
+    }
 }
