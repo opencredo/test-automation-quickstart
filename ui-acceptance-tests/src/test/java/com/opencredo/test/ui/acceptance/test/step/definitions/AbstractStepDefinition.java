@@ -6,16 +6,16 @@ import cucumber.api.Scenario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration(classes= UiTestConfig.class)
+@ContextConfiguration(classes = UiTestConfig.class)
 public abstract class AbstractStepDefinition {
-    protected Scenario scenario;
-
     @Autowired
     protected TestWorld testWorld;
+    private Scenario scenario;
 
     /**
      * Get a reference to the current cucumber scenario
      * Supports writing text and xml to report within test steps
+     *
      * @param scenario
      */
     public void before(Scenario scenario) {

@@ -13,18 +13,19 @@
     <description>Reactor project for the test automation quickstart</description>
 
     <properties>
-        <cucumber.version>1.2.4</cucumber.version>
-        <cucumber.jvm.parallel.version>1.0.1</cucumber.jvm.parallel.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <assertj.version>3.3.0</assertj.version>
+        <cucumber.version>1.2.5</cucumber.version>
+        <cucumber.jvm.parallel.version>4.2.0</cucumber.jvm.parallel.version>
+        <spring.version>5.0.8.RELEASE</spring.version>
+        <assertj.version>3.10.0</assertj.version>
         <javamail.version>1.4.4</javamail.version>
-        <selenium.version>2.53.1</selenium.version>
-        <jackson.version>2.7.2</jackson.version>
-        <httpclient.version>4.5.2</httpclient.version>
-        <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
+        <selenium.version>3.13.0</selenium.version>
+        <jackson.version>2.9.6</jackson.version>
+        <httpclient.version>4.5.6</httpclient.version>
+        <surefire.maven.plugin.version>2.22.0</surefire.maven.plugin.version>
+        <zap.clientapi.version>1.6.0</zap.clientapi.version>
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+
         <acceptance.test.parallel.count>2</acceptance.test.parallel.count>
-        <zap.clientapi.version>1.0.0</zap.clientapi.version>
-        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
     </properties>
 
     <build>
@@ -119,6 +120,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>

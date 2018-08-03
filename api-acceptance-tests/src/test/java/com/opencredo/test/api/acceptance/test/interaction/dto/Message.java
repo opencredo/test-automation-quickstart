@@ -5,7 +5,7 @@ public class Message {
     public String recipientUserName;
     public String message;
 
-    public Message (String senderUserName, String recipientUserName, String message) {
+    public Message(String senderUserName, String recipientUserName, String message) {
         this.senderUserName = senderUserName;
         this.recipientUserName = recipientUserName;
         this.message = message;

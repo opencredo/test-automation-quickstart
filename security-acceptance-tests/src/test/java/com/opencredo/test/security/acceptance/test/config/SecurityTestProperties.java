@@ -20,12 +20,18 @@ public class SecurityTestProperties {
     }
 
     public Boolean isProxyEnabled() {
-        return environment.getProperty("security.acceptance.test.proxy.enabled",Boolean.class,false);
+        return environment.getProperty("security.acceptance.test.proxy.enabled", Boolean.class, false);
     }
+
     public String getProxyUrl() {
         return environment.getProperty("security.acceptance.test.proxy.url");
     }
+
     public String getProxyPort() {
         return environment.getProperty("security.acceptance.test.proxy.port");
+    }
+
+    public String getBrowser() {
+        return environment.getProperty("security.acceptance.test.browser");
     }
 }
