@@ -24,8 +24,7 @@
         <surefire.maven.plugin.version>2.22.0</surefire.maven.plugin.version>
         <zap.clientapi.version>1.6.0</zap.clientapi.version>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
-
-        <acceptance.test.parallel.count>2</acceptance.test.parallel.count>
+        <acceptance.test.parallel.count>4</acceptance.test.parallel.count>
     </properties>
 
     <build>
