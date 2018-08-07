@@ -23,8 +23,8 @@
         <acceptance.test.parallel.count>4</acceptance.test.parallel.count>
         <cucumber.version>1.2.5</cucumber.version>
         <cucumber.jvm.parallel.version>1.0.1</cucumber.jvm.parallel.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <assertj.version>3.3.0</assertj.version>
+        <spring.version>5.0.8.RELEASE</spring.version>
+        <assertj.version>3.10.0</assertj.version>
     </properties>
 
     <build>
