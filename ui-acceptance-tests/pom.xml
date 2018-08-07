@@ -19,14 +19,16 @@
                 <executions>
                     <execution>
                         <id>generateRunners</id>
-                        <phase>validate</phase>
+                        <phase>generate-test-sources</phase>
                         <goals>
                             <goal>generateRunners</goal>
                         </goals>
                         <configuration>
                             <!-- Mandatory -->
                             <!-- comma separated list of package names to scan for glue code -->
-                            <glue>com.opencredo.test.ui.acceptance.test.step.definitions</glue>
+                            <glue>
+                                <package>com.opencredo.test.ui.acceptance.test.step.definitions</package>
+                            </glue>
                             <!-- These are the default values -->
                             <!-- Where to output the generated Junit tests -->
                             <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
@@ -42,7 +44,10 @@
                             <!-- CucumberOptions.monochrome property -->
                             <monochrome>true</monochrome>
                             <!-- The tags to run, maps to CucumberOptions.tags property -->
-                            <tags>"@ui-demo-parallel","~@ignore"</tags>
+                            <tags>
+                                <tag>@ui-demo-parallel</tag>
+                                <tag>~@ignore</tag>
+                            </tags>
                             <!-- If set to true, only feature files containing the required tags shall be generated. -->
                             <!-- Excluded tags (~@notMe) are ignored. -->
                         </configuration>
