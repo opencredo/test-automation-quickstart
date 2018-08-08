@@ -26,7 +26,7 @@ public class RepositoryStepDefs extends AbstractStepDefinition {
     }
 
     @When("^I retrieve a list of repositories for organisation \"([^\"]*)\"$")
-    public void I_retrieve_a_list_of_repositories_for_organisation(String organisation) throws Throwable {
+    public void iRetrieveAListOfRepositoriesForOrganisation(String organisation) throws Throwable {
         repositoryList = githubApi.getRepositoryListForOrganisation(organisation);
 
         embedTextInReport("Received list containing '" + repositoryList.size() + "' repositories");

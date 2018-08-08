@@ -7,7 +7,6 @@ import java.util.HashMap;
 public class TestWorld {
     public static final String USER_PASSWORD = "Testing123!";
 
-    public HashMap<String, String> sharedState = new HashMap<>();
     public String currentUserAlias;
     private HashMap<String, User> users = new HashMap<>();
 

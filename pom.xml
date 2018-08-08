@@ -52,6 +52,7 @@
                 <module>acceptance-tests-common</module>
                 <module>ui-acceptance-tests</module>
                 <module>api-acceptance-tests</module>
+                <module>email-acceptance-tests</module>
                 <module>performance-tests</module>
                 <module>security-acceptance-tests</module>
             </modules>
@@ -83,6 +84,15 @@
                 <module>security-acceptance-tests</module>
             </modules>
         </profile>
+
+        <profile>
+            <id>email-acceptance-tests</id>
+            <modules>
+                <module>acceptance-tests-common</module>
+                <module>email-acceptance-tests</module>
+            </modules>
+        </profile>
+
     </profiles>
 
     <dependencies>

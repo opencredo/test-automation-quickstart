@@ -1,6 +1,5 @@
 package com.opencredo.test.api.acceptance.test.config.spring;
 
-import com.opencredo.test.EmailAdaptor;
 import com.opencredo.test.api.acceptance.test.config.ApiTestProperties;
 import com.opencredo.test.api.acceptance.test.config.TestWorld;
 import com.opencredo.test.api.acceptance.test.interaction.api.objects.GithubApi;
@@ -51,10 +50,4 @@ public class ApiTestConfig {
     public RestTemplate restTemplate() {
         return new RestTemplate(new HttpComponentsClientHttpRequestFactory(httpClient()));
     }
-
-    @Bean
-    public EmailAdaptor emailAdaptor() {
-        return new EmailAdaptor(properties().getEmailAddress(), properties().getEmailPassword());
-    }
-
 }

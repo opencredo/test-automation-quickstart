@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>test-automation-quickstart</artifactId>
+        <groupId>com.opencredo.test</groupId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>email-acceptance-tests</artifactId>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>${cucumber.jvm.parallel.version}</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Mandatory -->
+                            <!-- comma separated list of package names to scan for glue code -->
+                            <glue>com.opencredo.test.email.acceptance.test.step.definitions</glue>
+                            <!-- These are the default values -->
+                            <!-- Where to output the generated Junit tests -->
+                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
+                            </outputDirectory>
+                            <!-- The diectory containing your feature files.  -->
+                            <featuresDirectory>src/test/resources/cucumber/</featuresDirectory>
+                            <!-- Directory where the cucumber report files shall be written  -->
+                            <cucumberOutputDir>target/cucumber-parallel</cucumberOutputDir>
+                            <!-- comma separated list of output formats -->
+                            <format>html</format>
+                            <!-- CucumberOptions.strict property -->
+                            <strict>true</strict>
+                            <!-- CucumberOptions.monochrome property -->
+                            <monochrome>true</monochrome>
+                            <!-- The tags to run, maps to CucumberOptions.tags property -->
+                            <tags>
+                                <tag>@email-demo</tag>
+                                <tag>~@ignore</tag>
+                            </tags>
+                            <!-- If set to true, only feature files containing the required tags shall be generated. -->
+                            <!-- Excluded tags (~@notMe) are ignored. -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>acceptance-test</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <forkCount>${acceptance.test.parallel.count}</forkCount>
+                            <reuseForks>true</reuseForks>
+                            <includes>
+                                <include>**/*IT.class</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.opencredo.test</groupId>
+            <artifactId>acceptance-tests-common</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+    </dependencies>
+</project>

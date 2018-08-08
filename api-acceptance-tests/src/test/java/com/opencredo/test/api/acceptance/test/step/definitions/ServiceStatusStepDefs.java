@@ -19,7 +19,7 @@ public class ServiceStatusStepDefs extends AbstractStepDefinition {
     }
 
     @Given("^that Github is up and running with a \"([^\"]*)\" status$")
-    public void that_Github_is_up_and_running_with_a_status(String expectedStatus) throws Throwable {
+    public void thatGithubIsUpAndRunningWithAStatus(String expectedStatus) throws Throwable {
         assertThat(expectedStatus).isEqualToIgnoringCase(githubStatus.getServiceStatus().status);
     }
 }
