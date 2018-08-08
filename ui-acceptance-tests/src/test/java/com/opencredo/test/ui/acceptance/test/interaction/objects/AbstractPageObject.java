@@ -1,6 +1,6 @@
 package com.opencredo.test.ui.acceptance.test.interaction.objects;
 
-import com.opencredo.test.SharedDriver;
+import com.opencredo.test.LocalDriver;
 import com.opencredo.test.ui.acceptance.test.config.webdriver.WaitConditions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
@@ -9,11 +9,11 @@ import org.openqa.selenium.support.ui.*;
  * Reusable methods for all page objects
  */
 public abstract class AbstractPageObject {
-    private final SharedDriver driver;
+    private final LocalDriver driver;
     private final int waitTimeOutSeconds;
     private String path;
 
-    public AbstractPageObject(String path, SharedDriver driver, int waitTimeOutSeconds) {
+    public AbstractPageObject(String path, LocalDriver driver, int waitTimeOutSeconds) {
         this.path = path;
         this.driver = driver;
         this.waitTimeOutSeconds = waitTimeOutSeconds;

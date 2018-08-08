@@ -1,6 +1,6 @@
 package com.opencredo.test.ui.acceptance.test.config.webdriver;
 
-import com.opencredo.test.SharedDriver;
+import com.opencredo.test.LocalDriver;
 import com.opencredo.test.ui.acceptance.test.config.spring.UiTestConfig;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 public class WebDriverHooks {
 
     @Autowired
-    private SharedDriver sharedDriver;
+    private LocalDriver localDriver;
 
     /**
      * Delete all cookies at the start of each ui scenario to avoid
@@ -22,7 +22,7 @@ public class WebDriverHooks {
      */
     @Before
     public void deleteAllCookies() {
-        this.sharedDriver.manage().deleteAllCookies();
+        this.localDriver.manage().deleteAllCookies();
     }
 
     /**
@@ -32,9 +32,9 @@ public class WebDriverHooks {
     public void embedScreenshotIfFailed(Scenario scenario) {
         if (scenario.isFailed()) {
             try {
-                scenario.write("Current Page URL is " + sharedDriver.getCurrentUrl());
-                if (sharedDriver.getWrappedDriver() instanceof TakesScreenshot) {
-                    byte[] screenshot = sharedDriver.getScreenshotAs(OutputType.BYTES);
+                scenario.write("Current Page URL is " + localDriver.getCurrentUrl());
+                if (localDriver.getWrappedDriver() instanceof TakesScreenshot) {
+                    byte[] screenshot = localDriver.getScreenshotAs(OutputType.BYTES);
                     scenario.embed(screenshot, "image/png");
                 }
             } catch (Throwable somePlatformsDontSupportScreenshotsOrBrowserHasDied) {

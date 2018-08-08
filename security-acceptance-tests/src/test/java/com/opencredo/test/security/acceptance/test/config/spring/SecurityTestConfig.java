@@ -1,6 +1,6 @@
 package com.opencredo.test.security.acceptance.test.config.spring;
 
-import com.opencredo.test.SharedDriver;
+import com.opencredo.test.LocalDriver;
 import com.opencredo.test.security.acceptance.test.config.SecurityTestProperties;
 import com.opencredo.test.security.acceptance.test.config.TestWorld;
 import com.opencredo.test.security.acceptance.test.config.ZapProxy;
@@ -39,8 +39,8 @@ public class SecurityTestConfig {
     }
 
     @Bean
-    public SharedDriver driver() {
-        return new SharedDriver(properties().getBrowser(), properties().isProxyEnabled(), webDriverProxy());
+    public LocalDriver driver() {
+        return new LocalDriver(properties().getBrowser(), true, webDriverProxy());
     }
 
     @Bean

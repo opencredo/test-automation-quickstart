@@ -1,11 +1,10 @@
 package com.opencredo.test;
 
-import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.BrowserType;
-import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
@@ -16,42 +15,34 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
  */
 
 public class SharedDriver extends EventFiringWebDriver {
-    private static WebDriver REAL_DRIVER;
+    protected static WebDriver DRIVER;
+
+
     private static final Thread CLOSE_THREAD = new Thread(SharedDriver::quitGlobalInstance);
 
-    public SharedDriver(String browser, boolean isProxyEnabled, Proxy proxy) {
-        super(getRealDriver(browser, isProxyEnabled, proxy));
+    public SharedDriver(WebDriver driver) {
+        super(driver);
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 
-
     private static void quitGlobalInstance() {
-        WebDriver driver = REAL_DRIVER;
-        REAL_DRIVER = null;
+        WebDriver driver = DRIVER;
+        DRIVER = null;
         if (driver != null) {
             driver.quit();
         }
     }
 
-    private static WebDriver getRealDriver(String browser, boolean isProxyEnabled, Proxy proxy) {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        if (isProxyEnabled && proxy != null)
-            capabilities.setCapability(CapabilityType.PROXY, proxy);
-
-        if (REAL_DRIVER == null) {
-            switch (browser) {
-                case BrowserType.FIREFOX:
-                    REAL_DRIVER = new FirefoxDriver(capabilities);
-                    break;
-                case BrowserType.GOOGLECHROME:
-                    REAL_DRIVER = new ChromeDriver(capabilities);
-                    break;
-                default:
-                    throw new RuntimeException("Framework does not support browser \"" + browser + "\"");
-            }
-        }
-        return REAL_DRIVER;
+    protected static WebDriver getFirefoxDriver(DesiredCapabilities capabilities) {
+        FirefoxOptions firefoxOptions = new FirefoxOptions().merge(capabilities);
+        return new FirefoxDriver(firefoxOptions);
     }
+
+    protected static WebDriver getChromeDriver(DesiredCapabilities capabilities) {
+        ChromeOptions chromeOptions = new ChromeOptions().merge(capabilities);
+        return new ChromeDriver(chromeOptions);
+    }
+
 
     @Override
     public void close() {
