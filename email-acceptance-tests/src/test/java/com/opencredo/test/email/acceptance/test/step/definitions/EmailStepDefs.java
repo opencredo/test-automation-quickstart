@@ -1,5 +1,4 @@
-package com.opencredo.test.api.acceptance.test.step.definitions;
-
+package com.opencredo.test.email.acceptance.test.step.definitions;
 
 import com.opencredo.test.EmailAdaptor;
 import cucumber.api.java.en.Given;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.mail.Message;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class EmailStepDefs extends AbstractStepDefinition {
 

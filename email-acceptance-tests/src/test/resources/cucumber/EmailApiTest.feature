@@ -1,7 +1,6 @@
-@api-demo
+@email-demo
 Feature: Demonstrate the Email API acceptance testing framework
 
-  @ignore
   Scenario: Simple email interaction
     Given test emails have been deleted from my account
     When I send a test email
