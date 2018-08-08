@@ -1,4 +1,4 @@
-@ui-demi-alias
+@demo-alias
 Feature: Demonstrate use of aliases to keep tests readable with complex data
 
   Scenario: Send a message between two users

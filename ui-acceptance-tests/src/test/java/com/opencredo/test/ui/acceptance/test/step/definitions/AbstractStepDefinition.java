@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @ContextConfiguration(classes = UiTestConfig.class)
 public abstract class AbstractStepDefinition {
+
     @Autowired
     protected TestWorld testWorld;
     private Scenario scenario;

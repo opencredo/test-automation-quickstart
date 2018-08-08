@@ -7,7 +7,7 @@ Feature: Demonstrate the UI test framework
     Then the site "www.opencredo.com" should be present in the results
 
   @ignore
-  Scenario: Test which will not be run due to the tag
+  Scenario: Failing test which will not be run due to the tag
     Given I am on the Google search page
     When I search for "OpenCredo"
-    Then the site "www.opencredo.com" should be present in the results
+    Then the site "BROKEN TEST" should be present in the results

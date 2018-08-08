@@ -21,4 +21,8 @@ public class UiTestProperties {
     public String getBrowser() {
         return environment.getProperty("ui.acceptance.test.browser");
     }
+
+    public String getHubUrl() {
+        return environment.getProperty("ui.acceptance.test.selenium.hub.url");
+    }
 }

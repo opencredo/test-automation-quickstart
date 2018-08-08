@@ -1,6 +1,7 @@
 package com.opencredo.test.ui.acceptance.test.config.spring;
 
-import com.opencredo.test.SharedDriver;
+import com.opencredo.test.LocalDriver;
+import com.opencredo.test.SeleniumHubDriver;
 import com.opencredo.test.ui.acceptance.test.config.TestWorld;
 import com.opencredo.test.ui.acceptance.test.config.UiTestProperties;
 import com.opencredo.test.ui.acceptance.test.interaction.objects.GoogleSearchPageObject;
@@ -17,9 +18,12 @@ public class UiTestConfig {
         return new TestWorld();
     }
 
-    @Bean
-    public SharedDriver driver() {
-        return new SharedDriver(properties().getBrowser(), false, null);
+    private LocalDriver localDriver() {
+        return new LocalDriver(properties().getBrowser(), false, null);
+    }
+
+    private SeleniumHubDriver hubDriver() {
+        return new SeleniumHubDriver(properties().getBrowser(), properties().getHubUrl());
     }
 
     @Bean
@@ -31,7 +35,7 @@ public class UiTestConfig {
     public GoogleSearchPageObject googleSearchPage() {
         return new GoogleSearchPageObject(
                 properties().getApplicationBaseUrl(),
-                driver(),
+                localDriver(),
                 properties().getSeleniumWaitTimeOutSeconds()
         );
     }
