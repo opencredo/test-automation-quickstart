@@ -1,5 +1,7 @@
-
 # test-automation-quickstart
+
+> [!NOTE]
+> This repo has been archived and is no longer under development. OpenCredo is now part of [Trifork](https://github.com/trifork).
 
 Java quickstart project for test automation, covering performance, UI acceptance, API acceptance testing and security testing.
 Created with lessons learned from a large number of development projects to provide all commonly required components and concepts.
